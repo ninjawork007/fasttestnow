@@ -210,5 +210,5 @@ require("includes/loader.php");
             });
         </script>
 </body>
-sg
+s
 </html>
