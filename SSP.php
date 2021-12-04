@@ -287,7 +287,8 @@ class SSP
 
         // Build the SQL query string from the request
         $limit = self::limit($request, $columns);
-        $order = self::order($request, $columns);
+        $order = ($orderBy !== null) ? $orderBy : self::order($request, $columns);
+        //$order = self::order($request, $columns);
         $where = self::filter($request, $columns, $bindings);
 
         $whereResult = self::_flatten($whereResult);
@@ -306,13 +307,14 @@ class SSP
 
             $whereAllSql = 'WHERE ' . $whereAll;
         }
-        
+
+
         // Main query to actually get the data
         $data = self::sql_exec($db, $bindings,
             "SELECT " . implode(", ", self::pluck($columns, 'db')) . "
 			 FROM ($table
 			 $where
-			 $orderBy
+			 $order
 			 $limit) as tb"
         );
 

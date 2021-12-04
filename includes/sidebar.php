@@ -15,6 +15,7 @@
                             <li><a href="create_pcr_report.php">Visby PCR</a></li>
                             <li><a href="create_accula_report.php">Accula Rt-PCR</a></li>
                             <li><a href="create_antibody_report.php">Antibody Screening</a></li>
+                            <li><a href="create_flu_report.php">FLU</a></li>
                         </ul>
                     </li>
                     <li style="display: block;">
@@ -39,6 +40,7 @@
                             <li><a href="create_pcr_report.php">Visby PCR</a></li>
                             <li><a href="create_accula_report.php">Accula Rt-PCR</a></li>
                             <li><a href="create_antibody_report.php">Antibody Screening</a></li>
+                            <li><a href="create_flu_report.php">FLU</a></li>
                         </ul>
                     </li>
                     <li>
@@ -53,7 +55,9 @@
                     </li>
 
                 <?php endif; ?>
-
+                    <li style="display: block;">
+                        <a href="requisition_form.php"  class="ai-icon" aria-expanded="false"><i class="mdi mdi-format-list-numbers"></i><span class="nav-text"> Requisition Forms </span></a>
+                    </li>
             </ul>
 
         </div>

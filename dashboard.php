@@ -144,6 +144,26 @@ $today = date('F d Y', time());
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-6">
+                            <div class="widget-stat card">
+                                <div class="card-body p-4">
+                                    <div class="media ai-icon">
+                                        <div class="media-body">
+                                            <p class="mb-1 text-primary">FLU</p>
+                                            <h3 class="mb-0"></h3>
+                                            <a href="create_flu_report.php?type=5" class="btn btn-outline-primary">Create Report</a>
+                                        </div>
+                                        <span class="mr-3 bgl-primary text-primary" id="dashboard_flu" style="cursor: pointer;">
+                                            <i class="mdi mdi-eye"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+
                 </div>
                 <?php include('includes/footer.php'); ?>
             </div>

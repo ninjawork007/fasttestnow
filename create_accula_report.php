@@ -38,6 +38,9 @@ if (isset($_GET['id'])) {
 }
 
 $all = 0;
+if ($_SESSION['role'] == 1) {
+    $all = 1;
+}
 if (isset($_GET['all'])) {
     $all = $_GET['all'];
 }
@@ -254,7 +257,7 @@ $currenttime = date('D, d F Y h:i:s A');
                     data: {method: 'getClientAppointmentInfo', id: data.id},
                     dataType: "json",
                     success: function (data) {
-                        console.log(data);
+                        // console.log(data);
                         $('#patient_firstname').val(data.firstName);
                         $('#patient_lastname').val(data.lastName);
                         $('#patient_phone').val(data.phone);
@@ -275,7 +278,8 @@ $currenttime = date('D, d F Y h:i:s A');
                                 $this.css("selected", "selected");
                             }
                         })
-                    }
+                    },
+                    
                 });
             });
             $("#sample_taken").datetimepicker({format: 'D, dd MM yyyy HH:ii:ss P', autoclose: true});

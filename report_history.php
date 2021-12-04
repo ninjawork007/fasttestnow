@@ -1,6 +1,6 @@
 <?php
 include('includes/head.php');
-include('includes/css.php');
+include('includes/report-css.php');
 require("includes/loader.php");
 ?>
 
@@ -45,6 +45,10 @@ require("includes/loader.php");
                                class="dropdown-item btn btn-rounded btn-primary"><span
                                         class="btn-icon-left text-primary"><i class="fa fa-plus"></i>
                                         </span>Antibody</a>
+                            <a href="create_flu_report.php?type=5&all=1"
+                               class="dropdown-item btn btn-rounded btn-primary"><span
+                                        class="btn-icon-left text-primary"><i class="fa fa-plus"></i>
+                                        </span>Flu</a>            
                         </div>
                     </div>
                 </div>
@@ -76,7 +80,7 @@ require("includes/loader.php");
 
             <?php include('includes/footer.php'); ?>
         </div>
-        <?php include('includes/script.php'); ?>
+        <?php include('includes/reportscript.php'); ?>
         <script type="text/javascript">
             function deleteReport(id) {
                 showLoadingBar();
@@ -131,8 +135,12 @@ require("includes/loader.php");
                 $(".dashboard_bar").html("Report History");
                 $('#server-side-reports-table').DataTable({
                     "processing": true,
+                    "language": {
+                        processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>Processing...'
+                    },
                     "serverSide": true,
                     "ajax": "serverside.php",
+                    "order": [[ 0, "desc" ]],
                     "columnDefs": [
                         {
                         "targets": [0],
@@ -151,6 +159,9 @@ require("includes/loader.php");
                             if (typeID === 4) {
                                     url = 'create_antibody_report.php?id=' + data;
                             }
+                            if (typeID === 5) {
+                                    url = 'create_flu_report.php?id=' + data;
+                            }                            
                             return '<div class="options btn-group">' +
                                 '<button type="button" class="btn tp-btn-light btn-primary dropdown-toggle" data-toggle="dropdown">' +
                                 '<i class="fa fa-cog" style="font-size:30px"></i>' +
@@ -163,127 +174,133 @@ require("includes/loader.php");
                         }
                     }],
                 });
-                $.ajax({
-                    type: "POST",
-                    url: 'data.php',
-                    data: {
-                        method: 'all'
-                    },
-                    success: function (data) {
-                        var tData = [];
+                // $.ajax({
+                //     type: "POST",
+                //     url: 'data.php',
+                //     data: {
+                //         method: 'all'
+                //     },
+                //     success: function (data) {
+                //         var tData = [];
 
-                        data = JSON.parse(data); // Parse the JSON string
-                        for (let i = 0; i < data.length; i++) {
-                            var obj = {};
-                            const element = data[i];
-                            obj.report_id = element.report_id;
-                            if (element.type_id == 1) {
-                                obj.type = "Visby PCR"
-                            }
-                            if (element.type_id == 2) {
-                                obj.type = "Antigen"
-                            }
-                            if (element.type_id == 3) {
-                                obj.type = "Accula"
-                            }
-                            if (element.type_id == 4) {
-                                obj.type = "Antibody"
-                            }
-                            obj.type_id = element.type_id;
-                            obj.patient_firstname = element.patient_firstname;
-                            obj.patient_lastname = element.patient_lastname;
-                            obj.patient_phone = element.patient_phone;
-                            obj.patient_email = element.patient_email;
-                            obj.patient_birth = element.patient_birth;
-                            obj.patient_gender = (element.patient_gender == 0) ? "Male" : "Female";
-                            obj.patient_passport = element.patient_passport;
-                            obj.report_results = (element.report_results == 0) ? "Negative" : "Positive";
-                            obj.sample_taken = element.sample_taken;
-                            obj.handled_at = element.handled_at;
-                            obj.pdf_file_url = element.pdf_file_url;
-                            obj.pdf_file_name = element.pdf_file_name;
-                            obj.report_created_at = element.report_created_at;
-                            obj.report_updated_at = element.report_updated_at;
-                            obj.name = element.name;
-                            // if(element.report_id==45){
-                            //     console.log(obj);
-                            // }
-                            tData.push(obj);
-                        }
-                        var t = $('#example').DataTable({
-                            "data": tData,
-                            "columns": [{
-                                "orderable": false,
-                                "data": null,
-                                "defaultContent": '',
-                                "render": function (data, type, full, meta) {
-                                    return (meta.row + 1);
-                                }
-                            },
-                                {
-                                    "className": 'details-control',
-                                    "orderable": false,
-                                    "data": null,
-                                    "defaultContent": '',
-                                    "render": function (data, type, full, meta) {
-                                        var url = '';
-                                        if (data.type_id == 1) {
-                                            url = 'create_pcr_report.php?id=' + data.report_id;
-                                        }
-                                        if (data.type_id == 2) {
-                                            url = 'create_antigen_report.php?id=' + data.report_id;
-                                        }
-                                        if (data.type_id == 3) {
-                                            url = 'create_accula_report.php?id=' + data.report_id;
-                                        }
-                                        if (data.type_id == 4) {
-                                            url = 'create_antibody_report.php?id=' + data.report_id;
-                                        }
-                                        return '<div class="options btn-group">' +
-                                            '<button type="button" class="btn tp-btn-light btn-primary dropdown-toggle" data-toggle="dropdown">' +
-                                            '<i class="fa fa-cog" style="font-size:30px"></i>' +
-                                            '</button>' +
-                                            '<div class="dropdown-menu">' +
-                                            '<a class="dropdown-item d-block" href="' + url + '&all=1"><span  class="btn-icon-left text-primary"><i class="fa fa-edit fa-margin"></i></span> Edit </a>' +
-                                            '<a class="dropdown-item d-block" href="downloadPDF.php?id=' + data.report_id + '&report_type=D"><span class="btn-icon-left text-primary"><i class="fa fa-print fa-margin"></i></span> Download PDF </a>' +
-                                            '<a class="dropdown-item text-danger" href="#" onclick="deleteReport(' + data.report_id + ')"><span class="btn-icon-left text-primary"><i class="mdi mdi-eraser"></i></span> Delete </a>' +
-                                            '</div>';
-                                    },
-                                    // width:"15px"
-                                },
-                                {
-                                    "data": "patient_firstname"
-                                },
-                                {
-                                    "data": "patient_lastname"
-                                },
-                                {
-                                    "data": "type"
-                                },
-                                {
-                                    "data": "patient_phone"
-                                },
-                                {
-                                    "data": "patient_email"
-                                },
-                                {
-                                    "data": "patient_birth"
-                                },
-                                {
-                                    "data": "patient_passport"
-                                },
-                                {
-                                    "data": "report_results"
-                                },
-                                {
-                                    "data": "sample_taken"
-                                }
-                            ],
+                //         data = JSON.parse(data); // Parse the JSON string
+                //         for (let i = 0; i < data.length; i++) {
+                //             var obj = {};
+                //             const element = data[i];
+                //             obj.report_id = element.report_id;
+                //             if (element.type_id == 1) {
+                //                 obj.type = "Visby PCR"
+                //             }
+                //             if (element.type_id == 2) {
+                //                 obj.type = "Antigen"
+                //             }
+                //             if (element.type_id == 3) {
+                //                 obj.type = "Accula"
+                //             }
+                //             if (element.type_id == 4) {
+                //                 obj.type = "Antibody"
+                //             }
+                //             if (element.type_id == 5) {
+                //                 obj.type = "Flu"
+                //             }
+                //             obj.type_id = element.type_id;
+                //             obj.patient_firstname = element.patient_firstname;
+                //             obj.patient_lastname = element.patient_lastname;
+                //             obj.patient_phone = element.patient_phone;
+                //             obj.patient_email = element.patient_email;
+                //             obj.patient_birth = element.patient_birth;
+                //             obj.patient_gender = (element.patient_gender == 0) ? "Male" : "Female";
+                //             obj.patient_passport = element.patient_passport;
+                //             obj.report_results = (element.report_results == 0) ? "Negative" : "Positive";
+                //             obj.sample_taken = element.sample_taken;
+                //             obj.handled_at = element.handled_at;
+                //             obj.pdf_file_url = element.pdf_file_url;
+                //             obj.pdf_file_name = element.pdf_file_name;
+                //             obj.report_created_at = element.report_created_at;
+                //             obj.report_updated_at = element.report_updated_at;
+                //             obj.name = element.name;
+                //             // if(element.report_id==45){
+                //             //     console.log(obj);
+                //             // }
+                //             tData.push(obj);
+                //         }
+                //         var t = $('#example').DataTable({
+                //             "data": tData,
+                //             "columns": [{
+                //                 "orderable": false,
+                //                 "data": null,
+                //                 "defaultContent": '',
+                //                 "render": function (data, type, full, meta) {
+                //                     return (meta.row + 1);
+                //                 }
+                //             },
+                //                 {
+                //                     "className": 'details-control',
+                //                     "orderable": false,
+                //                     "data": null,
+                //                     "defaultContent": '',
+                //                     "render": function (data, type, full, meta) {
+                //                         var url = '';
+                //                         if (data.type_id == 1) {
+                //                             url = 'create_pcr_report.php?id=' + data.report_id;
+                //                         }
+                //                         if (data.type_id == 2) {
+                //                             url = 'create_antigen_report.php?id=' + data.report_id;
+                //                         }
+                //                         if (data.type_id == 3) {
+                //                             url = 'create_accula_report.php?id=' + data.report_id;
+                //                         }
+                //                         if (data.type_id == 4) {
+                //                             url = 'create_antibody_report.php?id=' + data.report_id;
+                //                         }
+                //                         if (data.type_id == 5) {
+                //                             url = 'create_flu_report.php?id=' + data.report_id;
+                //                         }
+                //                         return '<div class="options btn-group">' +
+                //                             '<button type="button" class="btn tp-btn-light btn-primary dropdown-toggle" data-toggle="dropdown">' +
+                //                             '<i class="fa fa-cog" style="font-size:30px"></i>' +
+                //                             '</button>' +
+                //                             '<div class="dropdown-menu">' +
+                //                             '<a class="dropdown-item d-block" href="' + url + '&all=1"><span  class="btn-icon-left text-primary"><i class="fa fa-edit fa-margin"></i></span> Edit </a>' +
+                //                             '<a class="dropdown-item d-block" href="downloadPDF.php?id=' + data.report_id + '&report_type=D"><span class="btn-icon-left text-primary"><i class="fa fa-print fa-margin"></i></span> Download PDF </a>' +
+                //                             '<a class="dropdown-item text-danger" href="#" onclick="deleteReport(' + data.report_id + ')"><span class="btn-icon-left text-primary"><i class="mdi mdi-eraser"></i></span> Delete </a>' +
+                //                             '</div>';
+                //                     },
+                //                     // width:"15px"
+                //                 },
+                //                 {
+                //                     "data": "patient_firstname"
+                //                 },
+                //                 {
+                //                     "data": "patient_lastname"
+                //                 },
+                //                 {
+                //                     "data": "type"
+                //                 },
+                //                 {
+                //                     "data": "patient_phone"
+                //                 },
+                //                 {
+                //                     "data": "patient_email"
+                //                 },
+                //                 {
+                //                     "data": "patient_birth"
+                //                 },
+                //                 {
+                //                     "data": "patient_passport"
+                //                 },
+                //                 {
+                //                     "data": "report_results"
+                //                 },
+                //                 {
+                //                     "data": "sample_taken"
+                //                 }
+                //             ],
 
-                        });
-                    }
+                //         });
+                //     }
 
-                })
+                // })
                 $('[name=addCatalog]').click(function () {
                     var catalog_name = $.trim($('[name=add_name]').val());
                     if (catalog_name === '') {
