@@ -1,0 +1,11 @@
+{
+  "require": {
+    "mpdf/mpdf": "^8.0",
+    "tracy/tracy": "^2.8",
+    "mpdf/qrcode": "^1.1",
+    "aws/aws-sdk-php": "^3.191",
+    "ext-mysqli": "*",
+    "ext-curl": "*",
+    "ext-pdo": "*"
+  }
+}
