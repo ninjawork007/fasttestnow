@@ -1,6 +1,10 @@
 <?php
 include('includes/head.php');
 include('includes/css.php');
+if(!hasPermission('history_report')){
+    echo '<h2 class="text-center">Access Denied. You Don\'t Have Permission To View This Page.</h2>';
+    exit;
+}
 require("includes/loader.php");
 ?>
 
@@ -210,13 +214,5 @@ require("includes/loader.php");
             });
         </script>
 </body>
-
-
-
-
-
-
-
-
 
 </html>

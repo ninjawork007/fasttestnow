@@ -84,7 +84,7 @@ function saveEmployee()
     $pass = $_POST['password'];
     $email = $_POST['email'];
     $salary = $_POST['salary'];
-//    $balance = $_POST['balance'];
+    //    $balance = $_POST['balance'];
 
     $date_modifed = date("Y-m-d h:i:s");
     $salary = 1;
@@ -131,7 +131,6 @@ function deleteRow()
     $result = ['success'];
     echo json_encode($result);
     return;
-
 }
 
 
@@ -168,6 +167,7 @@ function addReport()
     date_default_timezone_set('US/Eastern');
     $currenttime = date('Y-m-d h:i:s');
     $type_id = $_POST['type'];
+    $location = $_POST['location'];
     $patient_firstname = $_POST['patient_firstname'];
     $patient_lastname = $_POST['patient_lastname'];
     $patient_phone = $_POST['patient_phone'];
@@ -181,14 +181,14 @@ function addReport()
         $patient_test_brand = $_POST['antigen_test_brand'];
     else if ($type_id == 5)
         $patient_test_brand = "OSOM ULTRA FLU A&B Screening";
-    else 
+    else
         $patient_test_brand = NULL;
     $user_id = $_SESSION['id'];
     $released = isset($_POST['released']) ? $_POST['released'] : "";
     $report_created_at = $currenttime;
     $report_updated_at = $currenttime;
     $handled_at = $currenttime;
-    if ($id == 0) {//insert new one
+    if ($id == 0) { //insert new one
 
         $maxTokenQ = "SELECT user_token FROM `tbl_report` ORDER BY report_id DESC LIMIT 0,1";
         $maxResult = mysqli_query($con, $maxTokenQ);
@@ -196,7 +196,7 @@ function addReport()
         $userToken = (int)$token[0];
         $newUserToken = str_pad($userToken + 1, 16, '0', STR_PAD_LEFT);
 
-        $q = mysqli_query($con, "INSERT INTO tbl_report (`report_id`, `user_token`,`type_id`, `patient_firstname`, `patient_lastname`, `patient_phone`, `patient_email`, `patient_birth`, `patient_gender`, `patient_passport`, `report_results`, `sample_taken`,`user_id` , `released`, `report_created_at`, `handled_at`, `antigen_test_brand`) VALUES (NULL, '$newUserToken', '$type_id', '$patient_firstname', '$patient_lastname', '$patient_phone', '$patient_email', '$patient_birth', '$patient_gender', '$patient_passport', '$report_results', '$sample_taken', '$user_id', '$released', '$report_created_at', '$handled_at', '$patient_test_brand')");
+        $q = mysqli_query($con, "INSERT INTO tbl_report (`report_id`, `user_token`,`type_id`, `location`, `patient_firstname`, `patient_lastname`, `patient_phone`, `patient_email`, `patient_birth`, `patient_gender`, `patient_passport`, `report_results`, `sample_taken`,`user_id` , `released`, `report_created_at`, `handled_at`, `antigen_test_brand`) VALUES (NULL, '$newUserToken', '$type_id', '$location', '$patient_firstname', '$patient_lastname', '$patient_phone', '$patient_email', '$patient_birth', '$patient_gender', '$patient_passport', '$report_results', '$sample_taken', '$user_id', '$released', '$report_created_at', '$handled_at', '$patient_test_brand')");
         $id = mysqli_insert_id($con);
 
         if (!$q) {
@@ -204,14 +204,12 @@ function addReport()
             echo json_encode(array('id' => $id, 'result' => $q));
             return;
         }
-
-    } else {//update
+    } else { //update
         // var_dump("UPDATE tbl_report SET type_id='$type_id', patient_firstname='$patient_firstname', patient_lastname='$patient_lastname', patient_phone='$patient_phone', patient_email='$patient_email', patient_birth='$patient_birth', patient_gender='$patient_gender', patient_passport='$patient_passport', report_results='$report_results', sample_taken='$sample_taken', released='$released', handled_at='$handled_at', report_updated_at='$report_updated_at' WHERE id=$id");die;
-        $q = mysqli_query($con, "UPDATE tbl_report SET type_id='$type_id', patient_firstname='$patient_firstname', patient_lastname='$patient_lastname', patient_phone='$patient_phone', patient_email='$patient_email', patient_birth='$patient_birth', patient_gender='$patient_gender', patient_passport='$patient_passport', report_results='$report_results', sample_taken='$sample_taken', released='$released', handled_at='$handled_at', report_updated_at='$report_updated_at', antigen_test_brand='$patient_test_brand' WHERE report_id=$id");
-
+        $q = mysqli_query($con, "UPDATE tbl_report SET type_id='$type_id', location='$location', patient_firstname='$patient_firstname', patient_lastname='$patient_lastname', patient_phone='$patient_phone', patient_email='$patient_email', patient_birth='$patient_birth', patient_gender='$patient_gender', patient_passport='$patient_passport', report_results='$report_results', sample_taken='$sample_taken', released='$released', handled_at='$handled_at', report_updated_at='$report_updated_at', antigen_test_brand='$patient_test_brand' WHERE report_id=$id");
     }
     if ($id > 0) {
-//        Create & Upload files on S3
+        //        Create & Upload files on S3
         uploadFilesOnAws($id);
     }
     echo json_encode(array('id' => $id, 'result' => $q));
@@ -276,6 +274,7 @@ function downloadPDF()
         $fo = mysqli_fetch_array_n($qo, MYSQLI_ASSOC);
 
         $type_id = $fo['type_id'];
+        $test_location = $fo['location'];
         $sample_taken = $fo['sample_taken'];
         $patient_firstname = $fo['patient_firstname'];
         $patient_lastname = $fo['patient_lastname'];
@@ -297,7 +296,6 @@ function downloadPDF()
             }
             return $number;
         }
-
     }
     if ($type_id == 1)
         $output = "uploads/8625a3599232039a77533b31ba47469cpdf/66c0300281470a91a1062263462f82e9pcr" . $id . ".pdf";
@@ -555,7 +553,8 @@ function downloadPDF()
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
         $pdfcontent .= '<td style="text-align: right;">';
-        $pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+        //$pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+        $pdfcontent .= $test_location;
         $pdfcontent .= '</td>';
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
@@ -649,15 +648,15 @@ function downloadPDF()
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
         $pdfcontent .= '<td colspan="2">';
-        $pdfcontent .= "<b>". $patient_test_brand ."</b> <br>";
+        $pdfcontent .= "<b>" . $patient_test_brand . "</b> <br>";
         $pdfcontent .= "<u style='color:blue;'>FDA | Factsheet for patients</u>";
         $pdfcontent .= '</td>';
         $pdfcontent .= '</tr>';
-         $pdfcontent .= '<tr>';
-    $pdfcontent .= '<td colspan="2">';
-    $pdfcontent .= "<b>Another test kit type: GenBody SARS-CoV-2 Antigen";
-    $pdfcontent .= '</td>';
-    $pdfcontent .= '</tr>';
+        $pdfcontent .= '<tr>';
+        $pdfcontent .= '<td colspan="2">';
+        $pdfcontent .= "<b>Another test kit type: GenBody SARS-CoV-2 Antigen";
+        $pdfcontent .= '</td>';
+        $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
         $pdfcontent .= '<td colspan="2" style="padding-top: 20px;">';
         $pdfcontent .= '<b>If negative results:</b> This may mean you were not infected at the time your test was performed. This
@@ -723,7 +722,7 @@ function downloadPDF()
         $pdfcontent .= '<table  class="block" border="0" style="width: 100%;margin-bottom: 50px; font-size: 12px;border-top: 0.1px solid #333333">';
         $pdfcontent .= '<tr>';
         $pdfcontent .= '<td rowspan="3"  class="barcodecell">';
-        $pdfcontent .= '<barcode code="' .$reportInfo['qrcode_file_url'] .'" type="QR" class="barcode" size="1" error="M" />';
+        $pdfcontent .= '<barcode code="' . $reportInfo['qrcode_file_url'] . '" type="QR" class="barcode" size="1" error="M" />';
         $pdfcontent .= '</td>';
         $pdfcontent .= '<td style="text-align: right;">';
         $pdfcontent .= 'https://fasttestnow.com - (833) 830 8383 - <u style="color:blue;">cs@fasttestnow.net</u>';
@@ -734,7 +733,8 @@ function downloadPDF()
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
         $pdfcontent .= '<td style="text-align: right;">';
-        $pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+        //$pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+        $pdfcontent .= $test_location;
         $pdfcontent .= '</td>';
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
@@ -912,7 +912,7 @@ function downloadPDF()
         $pdfcontent .= '<table  class="block" border="0" style="width: 100%;margin-bottom: 50px; font-size: 12px;border-top: 0.1px solid #333333">';
         $pdfcontent .= '<tr>';
         $pdfcontent .= '<td rowspan="3" class="barcodecell">';
-        $pdfcontent .= '<barcode code="' .$reportInfo['qrcode_file_url']. '" type="QR" class="barcode" size="1" error="M" />';
+        $pdfcontent .= '<barcode code="' . $reportInfo['qrcode_file_url'] . '" type="QR" class="barcode" size="1" error="M" />';
         $pdfcontent .= '</td>';
         $pdfcontent .= '<td style="text-align: right;">';
         $pdfcontent .= 'https://fasttestnow.com - (833) 830 8383 - <u style="color:blue;">cs@fasttestnow.net</u>';
@@ -923,7 +923,8 @@ function downloadPDF()
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
         $pdfcontent .= '<td style="text-align: right;">';
-        $pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+        //$pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+        $pdfcontent .= $test_location;
         $pdfcontent .= '</td>';
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
@@ -1012,22 +1013,20 @@ function downloadPDF()
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
         $pdfcontent .= '<td colspan="2">';
-        $pdfcontent .= '<b>Sample Type:</b> Nasopharyngeal Swab';
+        $pdfcontent .= '<b>Collection Method:</b> Finger Prick';
         $pdfcontent .= '</td>';
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
         $pdfcontent .= '<td colspan="2">';
-        $pdfcontent .= "<b>Abbot BinaxNOW</b> Covid-19 Antibody Test: <br>";
+        $pdfcontent .= "RightSign COVID-19 IgG/IgM Rapid Test Cassette: <br>";
         $pdfcontent .= "<u style='color:blue;'>FDA | Factsheet for patients</u>";
         $pdfcontent .= '</td>';
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
         $pdfcontent .= '<td colspan="2" style="padding-top: 20px;">';
-        $pdfcontent .= '<b>If negative results:</b> This may mean you were not infected at the time your test was performed. This
-                            does not mean you will not get infected or sick. It is possible that you were early in your infection at the
-                            time of your test and that you could test positive later, or you could be exposed later and then develop
-                            the illness. A negative test result does not rule out getting sick later. It is still strongly advised that you
-                            monitor your health, wear a mask, and practice social distancing and proper hygiene.';
+        $pdfcontent .= '<b>Detected (positive):</b> You produced the COVID-19 IgG antibody and have a high likelihood of prior infection. Some patients with past infections may not have experienced any symptoms. It is unclear at this time if a positive IgG infers immunity against future COVID-19 infection. Please continue with universal precautions: social distancing, hand washing and when applicable PPE such as masks or gloves.';
+
+        $pdfcontent .= '<b>Not Detected (negative):</b> You tested negative for COVID-19 IgG antibody. This means you have not been infected with COVID-19. Please note, it may take 14-21 days to produce detectable levels of IgG following infection. If you had symptoms consistent with COVID-19 within the past 3 weeks and tested negative, repeat testing in 1-2 weeks may yield a positive result.';
         $pdfcontent .= '</td>';
         $pdfcontent .= '</tr>';
         $pdfcontent .= '</table>';
@@ -1097,7 +1096,8 @@ function downloadPDF()
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
         $pdfcontent .= '<td style="text-align: right;">';
-        $pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+        //$pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+        $pdfcontent .= $test_location;
         $pdfcontent .= '</td>';
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
@@ -1255,7 +1255,7 @@ function downloadPDF()
         $pdfcontent .= '<table  class="block" border="0" style="width: 100%;margin-bottom: 50px; font-size: 12px;border-top: 0.1px solid #333333">';
         $pdfcontent .= '<tr>';
         $pdfcontent .= '<td rowspan="3"  class="barcodecell">';
-        $pdfcontent .= '<barcode code="' .$reportInfo['qrcode_file_url'] .'" type="QR" class="barcode" size="1" error="M" />';
+        $pdfcontent .= '<barcode code="' . $reportInfo['qrcode_file_url'] . '" type="QR" class="barcode" size="1" error="M" />';
         $pdfcontent .= '</td>';
         $pdfcontent .= '<td style="text-align: right;">';
         $pdfcontent .= 'https://fasttestnow.com - (833) 830 8383 - <u style="color:blue;">cs@fasttestnow.net</u>';
@@ -1266,7 +1266,8 @@ function downloadPDF()
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
         $pdfcontent .= '<td style="text-align: right;">';
-        $pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+        //$pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+        $pdfcontent .= $test_location;
         $pdfcontent .= '</td>';
         $pdfcontent .= '</tr>';
         $pdfcontent .= '<tr>';
@@ -1278,11 +1279,11 @@ function downloadPDF()
     }
     $pdfcontent .= '</body>';
 
-   // echo $pdfcontent; exit;
+    // echo $pdfcontent; exit;
 
     $mpdf->WriteHTML($pdfcontent);
 
-//output in browser
+    //output in browser
     $mpdf->Output($output, 'F');
 
     $result = true;
@@ -1571,8 +1572,7 @@ function sendEmail($action, $id, $test_id)
         </div> 
         </body>
         </html>';
-    }
-    else {
+    } else {
         $subject = $subject_line;
         $message = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
         <html>
@@ -1805,21 +1805,18 @@ function sendEmail($action, $id, $test_id)
         ->html_message($message)
         ->attachment('results.pdf', base64_encode(file_get_contents(__DIR__ . '/' . $output)), 'application/pdf')
         ->send();
-//    Delete PDF from Server Folder
+    //    Delete PDF from Server Folder
     unlink($output);
     echo json_encode($result);
     return;
-
 }
 
 function uploadFilesOnAws($reportID)
 {
-// create a new cURL resource
+    // create a new cURL resource
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://fasttestnow.health/downloadPDF.php?id=" . $reportID);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_exec($ch);
     curl_close($ch);
 }
-
-?>

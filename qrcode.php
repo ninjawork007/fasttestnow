@@ -351,6 +351,7 @@ function generate_antigen_result($url, $data, $reportID)
     $patient_gender = $data['patient_gender'];
     $patient_phone = $data['patient_phone'];
     $patient_passport = $data['patient_passport'];
+    $patient_test_brand = $data['antigen_test_brand'];
     $report_results = $data['report_results'];
     $report_updated_at = $data['report_updated_at'];
     $released = $data['released'];
@@ -463,7 +464,7 @@ function generate_antigen_result($url, $data, $reportID)
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td colspan="2">';
-    $pdfcontent .= "<b>Abbot BinaxNOW</b> Covid-19 Antigen Test: <br>";
+    $pdfcontent .= "<b>" . $patient_test_brand . "</b> <br>";
     $pdfcontent .= "<u style='color:blue;'>FDA | Factsheet for patients</u>";
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
@@ -475,10 +476,10 @@ function generate_antigen_result($url, $data, $reportID)
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td colspan="2" style="padding-top: 20px;">';
     $pdfcontent .= '<b>If negative results:</b> This may mean you were not infected at the time your test was performed. This
-                        does not mean you will not get infected or sick. It is possible that you were early in your infection at the
-                        time of your test and that you could test positive later, or you could be exposed later and then develop
-                        the illness. A negative test result does not rule out getting sick later. It is still strongly advised that you
-                        monitor your health, wear a mask, and practice social distancing and proper hygiene.';
+                            does not mean you will not get infected or sick. It is possible that you were early in your infection at the
+                            time of your test and that you could test positive later, or you could be exposed later and then develop
+                            the illness. A negative test result does not rule out getting sick later. It is still strongly advised that you
+                            monitor your health, wear a mask, and practice social distancing and proper hygiene.';
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
     $pdfcontent .= '</table>';
@@ -991,22 +992,20 @@ function generate_antibody_result($url, $data, $reportID)
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td colspan="2">';
-    $pdfcontent .= '<b>Sample Type:</b> Nasopharyngeal Swab';
+    $pdfcontent .= '<b>Collection Method:</b> Finger Prick';
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td colspan="2">';
-    $pdfcontent .= "<b>Abbot BinaxNOW</b> Covid-19 Antibody Test: <br>";
+    $pdfcontent .= "RightSign COVID-19 IgG/IgM Rapid Test Cassette: <br>";
     $pdfcontent .= "<u style='color:blue;'>FDA | Factsheet for patients</u>";
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td colspan="2" style="padding-top: 20px;">';
-    $pdfcontent .= '<b>If negative results:</b> This may mean you were not infected at the time your test was performed. This
-                        does not mean you will not get infected or sick. It is possible that you were early in your infection at the
-                        time of your test and that you could test positive later, or you could be exposed later and then develop
-                        the illness. A negative test result does not rule out getting sick later. It is still strongly advised that you
-                        monitor your health, wear a mask, and practice social distancing and proper hygiene.';
+    $pdfcontent .= '<b>Detected (positive):</b> You produced the COVID-19 IgG antibody and have a high likelihood of prior infection. Some patients with past infections may not have experienced any symptoms. It is unclear at this time if a positive IgG infers immunity against future COVID-19 infection. Please continue with universal precautions: social distancing, hand washing and when applicable PPE such as masks or gloves.';
+
+    $pdfcontent .= '<b>Not Detected (negative):</b> You tested negative for COVID-19 IgG antibody. This means you have not been infected with COVID-19. Please note, it may take 14-21 days to produce detectable levels of IgG following infection. If you had symptoms consistent with COVID-19 within the past 3 weeks and tested negative, repeat testing in 1-2 weeks may yield a positive result.';
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
     $pdfcontent .= '</table>';

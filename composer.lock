@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8fa27c097058a1c6f2f05af38e325abd",
+    "content-hash": "8d22934f9264039128c4391640012fb7",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -358,6 +358,58 @@
                 "url"
             ],
             "time": "2021-04-26T09:17:50+00:00"
+        },
+        {
+            "name": "interfax/interfax",
+            "version": "v1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/interfax/interfax-php.git",
+                "reference": "80b52ea650ed85aabe4855a9b669d265cffd57d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/interfax/interfax-php/zipball/80b52ea650ed85aabe4855a9b669d265cffd57d1",
+                "reference": "80b52ea650ed85aabe4855a9b669d265cffd57d1",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2|^7.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6.7",
+                "squizlabs/php_codesniffer": "^2.7"
+            },
+            "suggest": {
+                "phpunit/phpunit": "Allows automated tests to be run without system-wide install (only version 4-7 are supported)."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Test\\": "tests",
+                    "Interfax\\": "src/Interfax"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "InterFAX",
+                    "email": "dev@interfax.net"
+                },
+                {
+                    "name": "Mike Smith",
+                    "email": "mike.smith@camc-ltd.co.uk"
+                }
+            ],
+            "description": "Send and receive faxes with InterFAX",
+            "support": {
+                "issues": "https://github.com/interfax/interfax-php/issues",
+                "source": "https://github.com/interfax/interfax-php/tree/v1.1.5"
+            },
+            "time": "2021-03-12T19:18:50+00:00"
         },
         {
             "name": "mpdf/mpdf",
@@ -914,6 +966,58 @@
             "time": "2021-02-11T11:37:01+00:00"
         },
         {
+            "name": "shuchkin/simplexlsxgen",
+            "version": "1.1.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shuchkin/simplexlsxgen.git",
+                "reference": "1c206d06bc41d1b8a073613bdbe6d78bd79cdc28"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shuchkin/simplexlsxgen/zipball/1c206d06bc41d1b8a073613bdbe6d78bd79cdc28",
+                "reference": "1c206d06bc41d1b8a073613bdbe6d78bd79cdc28",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-zlib": "*",
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/SimpleXLSXGen.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Shuchkin (SMSPILOT)",
+                    "email": "sergey.shuchkin@gmail.com",
+                    "homepage": "https://shuchkin.ru/"
+                }
+            ],
+            "description": "Export data to Excel XLSx file. PHP XLSX generator.",
+            "homepage": "https://github.com/shuchkin/simplexlsxgen",
+            "keywords": [
+                "backend",
+                "creator",
+                "excel",
+                "generator",
+                "php",
+                "xlsx"
+            ],
+            "support": {
+                "issues": "https://github.com/shuchkin/simplexlsxgen/issues",
+                "source": "https://github.com/shuchkin/simplexlsxgen/tree/1.1.11"
+            },
+            "time": "2022-02-11T21:25:59+00:00"
+        },
+        {
             "name": "symfony/polyfill-mbstring",
             "version": "v1.23.1",
             "source": {
@@ -1073,5 +1177,5 @@
         "ext-pdo": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.1.0"
 }

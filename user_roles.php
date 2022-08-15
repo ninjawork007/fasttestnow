@@ -1,6 +1,10 @@
 <?php
 include('includes/head.php');
 include('includes/css.php');
+if(!hasPermission('user_roles')){
+    echo '<h2 class="text-center">Access Denied. You Don\'t Have Permission To View This Page.</h2>';
+    exit;
+}
 require("includes/loader.php");
 $con = dbCon();
 
@@ -10,17 +14,17 @@ $rows = mysqli_num_rows($q);
 $tr = '';
 $i = 1;
 $role = '';
-$arr = array("Admin", "Nurse");
+$roles = getData("SELECT * FROM tbl_roles");
 
 foreach($fetch as $f) {
-    $role = '<option value="0" ></option>';
-    for ($x = 1; $x <= 2; $x++) {
-        if($x == $f['role'])
+    $role = '<option disabled>Select Role</option>';
+    foreach($roles as $dbrole) {
+        if($dbrole['id'] == $f['role'])
             $selected = 'selected="selected"';
         else
             $selected = '';
 
-        $role .= '<option '.$selected.' value='.$x.' >'.$arr[$x-1].'</option>';
+        $role .= '<option '.$selected.' value='.$dbrole['id'].' >'.$dbrole['name'].'</option>';
     }
 
     $tr .= '<form id="saveEmployeeForm'.$i.'" method="post"><input type="hidden" name="formAction" value="saveEmployee" /><tr>';
@@ -28,8 +32,8 @@ foreach($fetch as $f) {
     $tr .= '<td>'.$i.'</td>';
     $tr .= '<td><span class="fieldTxt'.$i.'">'.$f['name'].'</span></td>';
     $tr .= '<td><span class="fieldTxt'.$i.'">'.$f['email'].'</span></td>';
-    $tr .= '<td><div class="form-group"><select name="role" class="">'.$role.'</select></div></td>';
-    $tr .= '<td><input type="button" value="Set role" class="btn btn-success" onclick="save_role('.$f['id'].', '.($i-1).')"  /></td>';
+    $tr .= '<td><div class="form-group"><select name="role" id="roleSel'.$i.'" placeholder="select role">'.$role.'</select></div></td>';
+    $tr .= '<td><input type="button" value="Set role" class="btn btn-success" onclick="save_role('.$f['id'].', '.$i.')"  /></td>';
     $tr .= '</tr></form>';
     $i++;
 }
@@ -80,7 +84,8 @@ foreach($fetch as $f) {
 
     <script type="text/javascript">
         function save_role(id, nth) {
-            var role = $("select").eq(nth).find("option:selected").val();
+            //var role = $("select").eq(nth).find("option:selected").val();
+            var role = $("#roleSel"+nth+"").val();
             $.ajax({
                 type: "POST",
                 url: 'users.php',

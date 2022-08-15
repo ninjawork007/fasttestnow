@@ -3,6 +3,10 @@
 $profile_qry = "SELECT * FROM tbl_settings WHERE id='1'";
 $profile_result = mysqli_query($mysqli, $profile_qry);
 $profile_row = mysqli_fetch_array($profile_result);
+$user_role_q ="SELECT * FROM tbl_roles WHERE id='".$_SESSION["role"]."'";
+$user_role_result = mysqli_query($mysqli, $user_role_q);
+$user_role_row = mysqli_fetch_array($user_role_result);
+
 ?>
 
  <!--**********************************
@@ -41,7 +45,7 @@ $profile_row = mysqli_fetch_array($profile_result);
                             <img src="assets/images/profile/17.jpg" width="20" alt=""/>
                             <div class="header-info">
                               <span class="text-black"><strong><?php echo $_SESSION['admin_name']; ?></strong></span>
-                              <p class="fs-12 mb-0"><?php echo (($_SESSION['role'] == 1)? "Admin": "Nurse"); ?></p>
+                              <p class="fs-12 mb-0"><?php echo ($_SESSION['role'] == 0 ) ? 'Super Admin' : $user_role_row['name']; ?></p>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">

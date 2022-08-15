@@ -1,0 +1,5 @@
+/vendor
+/assets.zip
+/serverside.php
+/config/connection.php
+/includes/datatabase.php

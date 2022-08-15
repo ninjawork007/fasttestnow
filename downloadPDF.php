@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-include __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use Mpdf\Mpdf;
 use Aws\S3\Exception\S3Exception;
@@ -24,6 +24,7 @@ $queryObj = mysqli_query($con, "SELECT * FROM tbl_report WHERE report_id=$id");
 if (mysqli_num_rows($queryObj) > 0) {
     $fo = mysqli_fetch_assoc($queryObj);
     $type_id = $fo['type_id'];
+    $test_location = $fo['location'];
     $sample_taken = $fo['sample_taken'];
     $patient_firstname = $fo['patient_firstname'];
     $patient_lastname = $fo['patient_lastname'];
@@ -46,7 +47,6 @@ if (mysqli_num_rows($queryObj) > 0) {
         }
         return $number;
     }
-
 }
 
 $awsPdfFile = null;
@@ -342,7 +342,7 @@ if ($type_id == 1) {
     $pdfcontent .= 'how you can help reduce the spread of the virus in your community, please check CDC website.</td>';
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr><td>&nbsp;</td></tr>';
-    
+
     $pdfcontent .= '</table>';
     $pdfcontent .= '<table  class="block" border="0" style="width: 100%;margin-bottom: 50px; font-size: 12px;border-top: 0.1px solid #333333">';
     $pdfcontent .= '<tr>';
@@ -358,7 +358,8 @@ if ($type_id == 1) {
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td style="text-align: right;">';
-    $pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+    //$pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+    $pdfcontent .= $test_location;
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
@@ -392,6 +393,7 @@ if ($type_id == 2) {
             </tr>
             <tr><td>&nbsp;</td></tr>
         </table>';
+
     $pdfcontent .= '<table class="block main_text" border="0" style="width: 100%;">';
     $pdfcontent .= '<tr><td>&nbsp;</td></tr>';
     $pdfcontent .= '<tr>';
@@ -456,11 +458,11 @@ if ($type_id == 2) {
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td colspan="2">';
-    $pdfcontent .= "<b>". $patient_test_brand ."</b> <br>";
+    $pdfcontent .= "<b>" . $patient_test_brand . "</b> <br>";
     $pdfcontent .= "<u style='color:blue;'>FDA | Factsheet for patients</u>";
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
-      $pdfcontent .= '<tr>';
+    $pdfcontent .= '<tr>';
     $pdfcontent .= '<td colspan="2">';
     $pdfcontent .= "<b>Another test kit type: GenBody SARS-CoV-2 Antigen";
     $pdfcontent .= '</td>';
@@ -530,7 +532,7 @@ if ($type_id == 2) {
     $pdfcontent .= '<table  class="block" border="0" style="width: 100%;margin-bottom: 50px; font-size: 12px;border-top: 0.1px solid #333333">';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td rowspan="3"  class="barcodecell">';
-    $pdfcontent .= '<barcode code="' .$reportInfo['qrcode_file_url'] .'" type="QR" class="barcode" size="1" error="M" />';
+    $pdfcontent .= '<barcode code="' . $reportInfo['qrcode_file_url'] . '" type="QR" class="barcode" size="1" error="M" />';
     $pdfcontent .= '</td>';
     $pdfcontent .= '<td style="text-align: right;">';
     $pdfcontent .= 'https://fasttestnow.com - (833) 830 8383 - <u style="color:blue;">cs@fasttestnow.net</u>';
@@ -541,7 +543,8 @@ if ($type_id == 2) {
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td style="text-align: right;">';
-    $pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+    //$pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+    $pdfcontent .= $test_location;
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
@@ -723,7 +726,7 @@ if ($type_id == 3) {
     $pdfcontent .= '<table  class="block" border="0" style="width: 100%;margin-bottom: 50px; font-size: 12px;border-top: 0.1px solid #333333">';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td rowspan="3" class="barcodecell">';
-    $pdfcontent .= '<barcode code="' .$reportInfo['qrcode_file_url']. '" type="QR" class="barcode" size="1" error="M" />';
+    $pdfcontent .= '<barcode code="' . $reportInfo['qrcode_file_url'] . '" type="QR" class="barcode" size="1" error="M" />';
     $pdfcontent .= '</td>';
     $pdfcontent .= '<td style="text-align: right;">';
     $pdfcontent .= 'https://fasttestnow.com - (833) 830 8383 - <u style="color:blue;">cs@fasttestnow.net</u>';
@@ -734,7 +737,8 @@ if ($type_id == 3) {
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td style="text-align: right;">';
-    $pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+    //$pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+    $pdfcontent .= $test_location;
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
@@ -827,22 +831,20 @@ if ($type_id == 4) {
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td colspan="2">';
-    $pdfcontent .= '<b>Sample Type:</b> Nasopharyngeal Swab';
+    $pdfcontent .= '<b>Collection Method:</b> Finger Prick';
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td colspan="2">';
-    $pdfcontent .= "<b>Abbot BinaxNOW</b> Covid-19 Antibody Test: <br>";
+    $pdfcontent .= "RightSign COVID-19 IgG/IgM Rapid Test Cassette: <br>";
     $pdfcontent .= "<u style='color:blue;'>FDA | Factsheet for patients</u>";
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td colspan="2" style="padding-top: 20px;">';
-    $pdfcontent .= '<b>If negative results:</b> This may mean you were not infected at the time your test was performed. This
-                            does not mean you will not get infected or sick. It is possible that you were early in your infection at the
-                            time of your test and that you could test positive later, or you could be exposed later and then develop
-                            the illness. A negative test result does not rule out getting sick later. It is still strongly advised that you
-                            monitor your health, wear a mask, and practice social distancing and proper hygiene.';
+    $pdfcontent .= '<b>Detected (positive):</b> You produced the COVID-19 IgG antibody and have a high likelihood of prior infection. Some patients with past infections may not have experienced any symptoms. It is unclear at this time if a positive IgG infers immunity against future COVID-19 infection. Please continue with universal precautions: social distancing, hand washing and when applicable PPE such as masks or gloves.';
+
+    $pdfcontent .= '<b>Not Detected (negative):</b> You tested negative for COVID-19 IgG antibody. This means you have not been infected with COVID-19. Please note, it may take 14-21 days to produce detectable levels of IgG following infection. If you had symptoms consistent with COVID-19 within the past 3 weeks and tested negative, repeat testing in 1-2 weeks may yield a positive result.';
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
     $pdfcontent .= '</table>';
@@ -912,7 +914,8 @@ if ($type_id == 4) {
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td style="text-align: right;">';
-    $pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+    //$pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+    $pdfcontent .= $test_location;
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
@@ -1015,7 +1018,7 @@ if ($type_id == 5) {
     $pdfcontent .= "<u style='color:blue;'>FDA | Factsheet for patients</u>";
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
-      $pdfcontent .= '<tr>';
+    $pdfcontent .= '<tr>';
     $pdfcontent .= '<td colspan="2">';
     $pdfcontent .= "<b>Another test kit type: GenBody SARS-CoV-2 Antigen";
     $pdfcontent .= '</td>';
@@ -1085,7 +1088,7 @@ if ($type_id == 5) {
     $pdfcontent .= '<table  class="block" border="0" style="width: 100%;margin-bottom: 50px; font-size: 12px;border-top: 0.1px solid #333333">';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td rowspan="3"  class="barcodecell">';
-    $pdfcontent .= '<barcode code="' .$reportInfo['qrcode_file_url'] .'" type="QR" class="barcode" size="1" error="M" />';
+    $pdfcontent .= '<barcode code="' . $reportInfo['qrcode_file_url'] . '" type="QR" class="barcode" size="1" error="M" />';
     $pdfcontent .= '</td>';
     $pdfcontent .= '<td style="text-align: right;">';
     $pdfcontent .= 'https://fasttestnow.com - (833) 830 8383 - <u style="color:blue;">cs@fasttestnow.net</u>';
@@ -1096,7 +1099,8 @@ if ($type_id == 5) {
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
     $pdfcontent .= '<td style="text-align: right;">';
-    $pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+    //$pdfcontent .= '2067 NE 163rd Street, North Miami Beach, FL 33162 | CLIA# 10D2214779';
+    $pdfcontent .= $test_location;
     $pdfcontent .= '</td>';
     $pdfcontent .= '</tr>';
     $pdfcontent .= '<tr>';
@@ -1129,7 +1133,7 @@ try {
         unlink($output);
     }
 } catch (S3Exception $e) {
-    echo($e->getMessage());
+    echo ($e->getMessage());
 }
 
 if (isset($_GET['report_type'])) {
@@ -1141,5 +1145,3 @@ if (isset($_GET['report_type'])) {
         die;
     }
 }
-
-?>

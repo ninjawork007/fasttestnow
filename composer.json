@@ -6,6 +6,13 @@
     "aws/aws-sdk-php": "^3.191",
     "ext-mysqli": "*",
     "ext-curl": "*",
-    "ext-pdo": "*"
-  }
+    "ext-pdo": "*",
+    "shuchkin/simplexlsxgen": "^1.1",
+    "interfax/interfax": "^1.1"
+  },
+  "autoload": {
+        "psr-4": {
+            "Classes\\": "vendor/"
+        }
+    }
 }

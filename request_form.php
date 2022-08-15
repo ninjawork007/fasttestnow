@@ -53,7 +53,8 @@ $sql_details = array(
 // );
 
 $where = "";
-$orderBy = "ORDER BY tbl_appointment.id ASC";
+$orderBy = ($_REQUEST['order'][0]['column'] == 0) ? "ORDER BY tbl_appointment.id DESC" : null;
+//$orderBy = "ORDER BY tbl_appointment.id ASC";
 $dataRows = SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, null, $where, $orderBy);
 echo json_encode($dataRows);
 ?>

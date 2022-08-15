@@ -1,10 +1,14 @@
 <?php
 include('includes/head.php');
 include('includes/css.php');
+if(!hasPermission('management_users')){
+    echo '<h2 class="text-center">Access Denied. You Don\'t Have Permission To View This Page.</h2>';
+    exit;
+}
 require("includes/loader.php");
 $con = dbCon();
 
-$q = mysqli_query($con, "SELECT * FROM tbl_users");
+$q = mysqli_query($con, "SELECT * FROM tbl_users where role!='0'");
 $fetch = mysqli_fetch_all_n($q, MYSQLI_ASSOC);
 $rows = mysqli_num_rows($q);
 $tr = '';
@@ -78,7 +82,7 @@ foreach($fetch as $f) {
                     </table>
                     </div>
                 </div>
-                <form id="employeeAddForm" action="" name="add_form" method="post" class="form form-horizontal"
+                <form id="employeeAddForm" action="/queryAdmin.php" name="add_form" method="post" class="form form-horizontal"
                           enctype="multipart/form-data">
                         <div class="row" >
                             <input type="hidden" name="formAction" value="addEmployee" />
@@ -99,7 +103,7 @@ foreach($fetch as $f) {
                         </div>
                         <div class="row" >
                             <div class="col-xs-12 col-md-12" style="margin-top:10px;margin-bottom:10px;text-align: right;">
-                                <button type="button" name="addEmployee" class="btn btn-primary">Add
+                                <button type="button" name="addEmployee" id="addEmployee" class="btn btn-primary">Add
                                 </button>
                             </div>
                         </div>
@@ -111,6 +115,50 @@ foreach($fetch as $f) {
     <?php include('includes/script.php'); ?>
 
     <script type="text/javascript">
+    
+    $(document).ready(function () {
+            $('#addEmployee').click(function(){
+                var name = $.trim($('[name=add_name]').val());
+                if (name  === '') {
+                    alert('name field is empty.');
+                    return false;
+                }
+
+                var email = $.trim($('[name=add_email]').val());
+                if (email  === '') {
+                    alert('email field is empty.');
+                    return false;
+                }
+
+                var role = $.trim($('[name=add_role]').val());
+                if (role  === '0') {
+                    alert('role field is empty.');
+                    return false;
+                }
+
+                var password = $.trim($('[name=add_password]').val());
+                if (password  === '') {
+                    alert('password field is empty.');
+                    return false;
+                }
+                $.ajax({
+  type: 'POST',
+  url: '/queryAdmin.php',
+  data: $('form#employeeAddForm').serialize(),
+  success: function() {
+    window.location.reload();
+  },
+  error: function() {
+    console.log("Signup was unsuccessful");
+  }
+});
+
+                //addRow('employee');
+
+            });
+
+            $(".dashboard_bar").html("Manage Users");
+        });
          (function($) {
 			var table = $('#example2').DataTable({
 				searching: true,
@@ -204,40 +252,9 @@ foreach($fetch as $f) {
                 }
             }
         }
+       
 
-        $(document).ready(function () {
-
-            $('[name=addEmployee]').click(function(){
-                var name = $.trim($('[name=add_name]').val());
-                if (name  === '') {
-                    alert('name field is empty.');
-                    return false;
-                }
-
-                var email = $.trim($('[name=add_email]').val());
-                if (email  === '') {
-                    alert('email field is empty.');
-                    return false;
-                }
-
-                var role = $.trim($('[name=add_role]').val());
-                if (role  === '0') {
-                    alert('role field is empty.');
-                    return false;
-                }
-
-                var password = $.trim($('[name=add_password]').val());
-                if (password  === '') {
-                    alert('password field is empty.');
-                    return false;
-                }
-
-                addRow('employee');
-
-            });
-
-            $(".dashboard_bar").html("Manage Users");
-        });
+        
     </script>
     <?php include('includes/script-bottom.php'); ?>
 </body>

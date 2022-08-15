@@ -1,6 +1,10 @@
 <?php
 include('includes/head.php');
-include('includes/report-css.php');
+include('includes/css.php');
+if(!hasPermission('report_history')){
+    echo '<h2 class="text-center">Access Denied. You Don\'t Have Permission To View This Page.</h2>';
+    exit;
+}
 require("includes/loader.php");
 ?>
 
@@ -80,7 +84,7 @@ require("includes/loader.php");
 
             <?php include('includes/footer.php'); ?>
         </div>
-        <?php include('includes/reportscript.php'); ?>
+        <?php include('includes/script.php'); ?>
         <script type="text/javascript">
             function deleteReport(id) {
                 showLoadingBar();
@@ -161,7 +165,7 @@ require("includes/loader.php");
                             }
                             if (typeID === 5) {
                                     url = 'create_flu_report.php?id=' + data;
-                            }                            
+                            }
                             return '<div class="options btn-group">' +
                                 '<button type="button" class="btn tp-btn-light btn-primary dropdown-toggle" data-toggle="dropdown">' +
                                 '<i class="fa fa-cog" style="font-size:30px"></i>' +
@@ -300,7 +304,7 @@ require("includes/loader.php");
                 //         });
                 //     }
 
-                // })
+                // });
                 $('[name=addCatalog]').click(function () {
                     var catalog_name = $.trim($('[name=add_name]').val());
                     if (catalog_name === '') {

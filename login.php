@@ -26,30 +26,33 @@ if ($username == "") {
 
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
-
+    $_SESSION['id'] = $row['id'];
+    $_SESSION['admin_name'] = $row['name'];
+    $_SESSION['role'] = $row['role'];
+    header("Location:dashboard.php");
    
     // var_dump(gettype($row['role']));die;
-      switch ($row['role']) {
-        case 0:
-          setcookie("msg", "Please ask Admin for your permission.", time() + (60 * 30), "/");
-          $_SESSION['msg'] = "Please ask Admin for your permission.";
-          header("Location:index.php");
-          break;
-        case 1:
-          $_SESSION['id'] = $row['id'];
-          $_SESSION['admin_name'] = $row['name'];
-          $_SESSION['role'] = $row['role'];
-          header("Location:dashboard.php");
-          break;
-        case 2:
-          $_SESSION['id'] = $row['id'];
-          $_SESSION['admin_name'] = $row['name'];
-          $_SESSION['role'] = $row['role'];
-          header("Location:dashboard.php");
-          break;
-        default:
-          echo 'alert("You are now being Tracked");';
-      }
+      // switch ($row['role']) {
+      //   case 0:
+      //     setcookie("msg", "Please ask Admin for your permission.", time() + (60 * 30), "/");
+      //     $_SESSION['msg'] = "Please ask Admin for your permission.";
+      //     header("Location:index.php");
+      //     break;
+      //   case 1:
+      //     $_SESSION['id'] = $row['id'];
+      //     $_SESSION['admin_name'] = $row['name'];
+      //     $_SESSION['role'] = $row['role'];
+      //     header("Location:dashboard.php");
+      //     break;
+      //   case 2:
+      //     $_SESSION['id'] = $row['id'];
+      //     $_SESSION['admin_name'] = $row['name'];
+      //     $_SESSION['role'] = $row['role'];
+      //     header("Location:dashboard.php");
+      //     break;
+      //   default:
+      //     echo 'alert("You are now being Tracked");';
+      // }
       exit;
   } else {
       setcookie("msg", "Used wrong username or password", time() + (60 * 30), "/");
