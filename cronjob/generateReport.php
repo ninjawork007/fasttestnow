@@ -105,10 +105,10 @@ class Sendtofhod
         
         ini_set('max_execution_time', 0);
         $list=array();
-$month = 7;
+$month = 8;
 $year = 2022;
 
-for($d=23; $d<= 31; $d++)
+for($d=30; $d<= 30; $d++)
 {
     $time=mktime(0,0,0,$month, $d, $year);          
     if (date('m', $time)==$month)       
@@ -117,7 +117,7 @@ for($d=23; $d<= 31; $d++)
         foreach($list as $fromDate){
             $this->todayReport = [];
             $toDate = date('Y-m-d', strtotime($fromDate));
-          $values = getData("SELECT t1.*, t2.* FROM tbl_report t1, tbl_appointment t2 WHERE t1.patient_firstname = t2.firstName AND t1.patient_lastname = t2.lastName AND t1.patient_email = t2.email AND t1.type_id NOT IN('4','5') AND t1.report_created_at BETWEEN '".$fromDate."' AND '".$toDate." 11:59:59' ORDER BY t2.id");
+            $values = getData("SELECT t1.*, t2.* FROM tbl_report t1, tbl_appointment t2 WHERE t1.patient_firstname = t2.firstName AND t1.patient_lastname = t2.lastName AND t1.patient_email = t2.email AND t1.type_id NOT IN('4','5') AND t1.report_created_at BETWEEN '".$fromDate."' AND '".$toDate." 11:59:59' ORDER BY t2.id");
 
           //echo "SELECT t1.*, t2.* FROM tbl_report t1, tbl_appointment t2 WHERE t1.patient_firstname = t2.firstName AND t1.patient_lastname = t2.lastName AND t1.patient_email = t2.email AND t1.type_id NOT IN('4','5') AND t1.report_created_at BETWEEN '" . $fromDate . "' AND '" . $toDate . " 11:59:59'"."<br /><br />"; exit;
 
@@ -221,7 +221,7 @@ for($d=23; $d<= 31; $d++)
     foreach ($splitedArray as $key => $splitLoop) { 
         $this->fileName = $this->fileName . $key .".csv";
         
-        $f = fopen(__DIR__ . '/Monthly-Report/July/' . $this->fileName, 'w');
+        $f = fopen(__DIR__ . '/Monthly-Report/August/' . $this->fileName, 'w');
         foreach ($splitLoop as $csvLine => $line) {
             $return = fputcsv($f, $line, $delimiter); 
             if("\n" != $eol && 0 === fseek($f, -1, SEEK_CUR)) {

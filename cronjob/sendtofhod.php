@@ -62,9 +62,9 @@ class Sendtofhod
      * Test Types
      */
     private $testTypes = [
-        '1' => ['name' => 'PCR', 'pathogen' => 'SARS-CoV-2 (COVID-19)', 'lonic' => '97097-6', 'lonic_shortname' => 'SARS-CoV-2 RNA Resp Ql NAA+probe'],
+        '1' => ['name' => 'PCR', 'pathogen' => 'SARS-CoV-2 (COVID-19)', 'lonic' => '94500-6', 'lonic_shortname' => 'SARS-CoV-2 RNA Resp Ql NAA+probe'],
         '2' => ['name' => 'Antigen', 'pathogen' => 'SARS-CoV-2 (COVID-19)', 'lonic' => '97097-0', 'lonic_shortname' => 'SARS-CoV-2 Ag Upper resp Ql IA.rapid'],
-        '3' => ['name' => 'PCR', 'pathogen' => 'SARS-CoV-2 (COVID-19)', 'lonic' => '97097-6', 'lonic_shortname' => 'SARS-CoV-2 RNA Resp Ql NAA+probe'],
+        '3' => ['name' => 'PCR', 'pathogen' => 'SARS-CoV-2 (COVID-19)', 'lonic' => '94500-6', 'lonic_shortname' => 'SARS-CoV-2 RNA Resp Ql NAA+probe'],
     ];
 
     /**
@@ -81,8 +81,8 @@ class Sendtofhod
      * result snomed
      */
     private $resultSnomed = [
-        '0' => '10828004',
-        '1' => '260385009',
+        '0' => '260385009',
+        '1' => '10828004',
         '2' => '419984006'
     ];
 
@@ -112,75 +112,88 @@ class Sendtofhod
      */
     private function setTodayReport()
     {
+        array_push($this->todayReport, $this->columnNames);
+        $lastIncrementVal = 0;
         foreach ($this->cliaids as $ckey => $cliaid) {
             $fromDate = date('Y-m-d H:i:s', strtotime("yesterday"));
             $toDate = date('Y-m-d H:i:s', time());
             $values = getData("SELECT t1.*, t2.* FROM tbl_report t1, tbl_appointment t2 WHERE t1.location LIKE '%" . $cliaid . "%' AND t1.patient_firstname = t2.firstName AND t1.patient_lastname = t2.lastName AND t1.patient_email = t2.email AND t1.type_id NOT IN('4','5') AND t1.report_created_at BETWEEN '" . $fromDate . "' AND '" . $toDate . "'");
+           
             if (count($values) > 1) {
-                array_push($this->todayReport, $this->columnNames);
                 foreach ($values as $key => $value) {
-                    array_push($this->todayReport, [
-                        ($key+1),
-                        trim($this->facilityID),
-                        trim($this->cliaid),
-                        "",
-                        trim($value['patient_lastname']),
-                        trim($value['patient_firstname']),
-                        "",
-                        trim(date('m/d/Y',strtotime($value['patient_birth']))),
-                        "",
-                        ($value['address'] != '') ? trim($value['address']) : "Unknown",
-                        ($value['city'] !='') ? trim($value['city']) : "Unknown",
-                        "FL",
-                        ($value['zipcode'] != '') ? trim($this->getZipCode($value['zipcode'])) : "99999",
-                        "",
-                        trim($value['gender']) != '' ? $value['gender'] : "Unknown",
-                        ($value['patient_phone'] != '') ? trim($this->getPhoneNumber($value['patient_phone'])) : trim($this->faxNumber),
-                        "No Response",
-                        ($value['ethnicity'] == 'White') ? 1 : 0,
-                        "",
-                        ($value['ethnicity'] == 'American Indian or Alaska Native') ? 1 : 0,
-                        ($value['ethnicity'] == 'Asian') ? 1 : 0,
-                        ($value['ethnicity'] == 'Native Hawaiian or Other Pacific Islander') ? 1 : 0,
-                        ($value['ethnicity'] == 'Other') ? 1 : 0,
-                        "",
-                        ($value['ethnicity'] == '') ? 1 : 0,
-                        trim($value['patient_lastname']),
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        trim($this->testTypes[$value['type_id']]['pathogen']),
-                        trim($this->testTypes[$value['type_id']]['name']),
-                        trim($this->testTypes[$value['type_id']]['lonic']) ?? "",
-                        trim($this->testTypes[$value['type_id']]['lonic_shortname']) ?? "",
-                        trim($this->specimenCollectionType),
-                        trim($this->Specimensnomed),
-                        trim(date('m/d/Y', $this->getSpeDate($value['report_created_at']))),
-                        $value['report_results'] ? "Positive" : "Negative",
-                        trim($this->resultSnomed[$value['report_results']]),
-                    ]);
+                    
+                array_push($this->todayReport, [
+                ($key + 1) + $lastIncrementVal,
+                trim($this->facilityID),
+                trim($cliaid),
+                "",
+                trim($value['patient_lastname']),
+                trim($value['patient_firstname']),
+                "",
+                trim(date('m/d/Y',strtotime($value['patient_birth']))),
+                "",
+                ($value['address'] != '') ? trim($value['address']) : "Unknown",
+                ($value['city'] !='') ? trim($value['city']) : "Unknown",
+                "FL",
+                ($value['zipcode'] != '') ? trim($this->getZipCode($value['zipcode'])) : "99999",
+                "",
+                trim($value['gender']) != '' ? $value['gender'] : "Unknown",
+                ($value['patient_phone'] != '') ? trim($this->getPhoneNumber($value['patient_phone'])) : trim($this->faxNumber),
+                "No Response",
+                ($value['ethnicity'] == 'White') ? 1 : 0,
+                "",
+                ($value['ethnicity'] == 'American Indian or Alaska Native') ? 1 : 0,
+                ($value['ethnicity'] == 'Asian') ? 1 : 0,
+                ($value['ethnicity'] == 'Native Hawaiian or Other Pacific Islander') ? 1 : 0,
+                ($value['ethnicity'] == 'Other') ? 1 : 0,
+                "",
+                ($value['ethnicity'] == '') ? 1 : 0,
+                trim($value['patient_lastname']),
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                trim($this->testTypes[$value['type_id']]['pathogen']),
+                trim($this->testTypes[$value['type_id']]['name']),
+                trim($this->testTypes[$value['type_id']]['lonic']) ?? "",
+                trim($this->testTypes[$value['type_id']]['lonic_shortname']) ?? "",
+                trim($this->specimenCollectionType),
+                trim($this->Specimensnomed),
+                trim(date('m/d/Y', $this->getSpeDate($value['report_created_at']))),
+                $value['report_results'] ? "Positive" : "Negative",
+                trim($this->resultSnomed[$value['report_results']]),
+            ]);
                 }
-                $this->subject = 'Daily Report for ' . ($cliaid == 'Las Vegas') ? 'Las Vegas' : 'Other labs';
-                if($ckey >= 3)
-                    $this->dataTocsv();
-            }
-        }
+                $lastIncrementVal = $key + 1 + $lastIncrementVal;
+                $this->subject = 'Daily Report for Other labs';
+                // if($cliaid == 'Las Vegas'){
+                //     $this->subject = 'Daily Report for Las Vegas';
+                // }else{
+                //     $this->subject = 'Daily Report for Other labs';
+                // }
+                //if($ckey >= 4) {
+                //    $this->dataTocsv();
+                //}
+                
+            } // IF ENDS HERE
+        } // MASTER FOREACH ENDS HERE
+        $this->dataTocsv();
+        //echo '<pre>';
+        //print_r($this->todayReport);
+        exit;
     }
 
 
     private function dataTocsv()
     {
         //$this->fileName =  $this->facilityName . "_" . date('m') . date('d') . date('y') . "_" . time() . ".csv";
-
-        //echo '<pre>'; print_r($this->todayReport); exit;
-
+        
         $splitedArray = array_chunk($this->todayReport,600);
         foreach($splitedArray as $key => $splitLoop) {
-        $this->fileName = $this->facilityName . "_" . date('m') . date('d') . date('y') . "_" . time() . $key .".csv";
+        $this->fileName = $this->facilityName . "_" . date('mdy',strtotime("-1 days")) . "_" . time() . $key .".csv";
             
         $f = fopen(__DIR__ . '/Monthly-Report/' . $this->fileName, 'w');
             foreach ($splitLoop as $csvLine => $line) {
@@ -192,20 +205,28 @@ class Sendtofhod
             fseek($f, 0);
             $this->sendToMail();
         }
-        exit;
     }
 
     private function sendToMail()
     {
+        if (count($this->todayReport) > 1) {
         $postmark = new Postmark("d1082cae-330f-4dec-a6f7-75c2afb80081", "result@fasttestnow.health");
         $result = $postmark
             ->to('carlos@fasttestnow.net, victorpolezhaevv@gmail.com')
             ->subject($this->subject)
             ->plain_message("You've received an encrypted message from FastTestNow&#174;")
-            ->html_message('report data')
+            ->html_message('Report Data')
             ->attachment($this->fileName, base64_encode(file_get_contents(__DIR__ . '/Monthly-Report/' . $this->fileName)), 'text/csv')
             ->send();
-        print_r($result);
+        } else {
+        $postmark = new Postmark("d1082cae-330f-4dec-a6f7-75c2afb80081", "result@fasttestnow.health");
+        $result = $postmark
+            ->to('carlos@fasttestnow.net, victorpolezhaevv@gmail.com')
+            ->subject('Daily Report for Other labs')
+            ->plain_message("You've received an encrypted message from FastTestNow&#174;")
+            ->html_message('There is no record today')
+            ->send();
+        }
     }
     public function getZipCode($zipcode)
     {

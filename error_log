@@ -271,3 +271,9 @@ Stack trace:
 [24-Jul-2022 13:06:08 America/Los_Angeles] PHP Notice:  Undefined variable: admin_id in /home/ftnhealth/public_html/queryAdmin.php on line 1303
 [24-Jul-2022 13:06:08 America/Los_Angeles] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/ftnhealth/public_html/includes/functions.php on line 34
 [27-Jul-2022 13:26:54 US/Eastern] PHP Notice:  Undefined index: patient_passport in /home/ftnhealth/public_html/queryAdmin.php on line 177
+[26-Aug-2022 16:12:56 US/Eastern] PHP Notice:  Undefined index: id in /home/ftnhealth/public_html/queryAdmin.php on line 186
+[26-Aug-2022 13:13:01 America/Los_Angeles] PHP Notice:  Undefined variable: admin_id in /home/ftnhealth/public_html/queryAdmin.php on line 1303
+[26-Aug-2022 13:13:01 America/Los_Angeles] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/ftnhealth/public_html/includes/functions.php on line 34
+[26-Aug-2022 16:13:02 US/Eastern] PHP Notice:  Undefined index: id in /home/ftnhealth/public_html/queryAdmin.php on line 186
+[26-Aug-2022 13:13:06 America/Los_Angeles] PHP Notice:  Undefined variable: admin_id in /home/ftnhealth/public_html/queryAdmin.php on line 1303
+[26-Aug-2022 13:13:06 America/Los_Angeles] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/ftnhealth/public_html/includes/functions.php on line 34
