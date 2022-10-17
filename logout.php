@@ -1,6 +1,6 @@
 <?php
 session_start();
-unset($_SESSION["admin_name"]);
+unset($_SESSION["permission"]);
 setcookie('msg','');
 session_destroy();
 

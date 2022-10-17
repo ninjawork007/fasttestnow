@@ -1,9 +1,12 @@
 <?php
 include('includes/head.php');
-include('includes/css.php');
-require("includes/loader.php");
 
-if ($_SESSION['role'] == 1) {
+include('includes/css.php');
+
+//require("includes/loader.php");
+
+
+if ($_SESSION['role'] == 1 || $_SESSION['role'] == 0) {
     $query1 = "SELECT * FROM tbl_report WHERE type_id=1";
     $query2 = "SELECT * FROM tbl_report WHERE type_id=2";
     $query3 = "SELECT * FROM tbl_report WHERE type_id=3";

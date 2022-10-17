@@ -40,7 +40,19 @@ if (isset($_GET['id'])) {
         mysqli_free_result($result);
     }
 }
-
+// add from user info by GET params
+if (isset($_GET['info'])) :
+    $result = json_decode($_GET['info']);
+    $info = (array) $result;
+    
+    $patient_firstname = $info['firstName'];
+    $patient_lastname = $info['lastName'];
+    $patient_phone = $info['phone'];
+    $patient_email = $info['email'];
+    $patient_birth = $info['dob'];
+    $patient_gender = ($info['gender'] == "Male")? 0: 1;
+    $patient_passport = $info['passport_no'];
+endif;
 $all = 0;
 if ($_SESSION['role'] == 1) {
     $all = 1;

@@ -15,9 +15,9 @@ if (isset($_POST['formAction'])) {
         case 'saveEmployee':
             saveEmployee();
             exit;
-        case 'addCustomer':
-            addCustomer();
-            exit;
+        // case 'addCustomer':
+        //     addCustomer();
+        //     exit;
         case 'addEmployee':
             addEmployee();
             exit;
@@ -232,6 +232,7 @@ function deleteReport()
     echo json_encode($result);
     return;
 }
+
 
 function getClientAppointmentInfo()
 {

@@ -10,12 +10,12 @@ class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
-        'd507e002f7fce7f0c6dbf1f22edcb902' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/functions.php',
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '8a9dc1de0ca7e01f3e08231539562f61' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/functions.php',
+        'd507e002f7fce7f0c6dbf1f22edcb902' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -49,6 +49,10 @@ class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
         'I' => 
         array (
             'Interfax\\' => 9,
+        ),
+        'H' => 
+        array (
+            'Http\\Message\\' => 13,
         ),
         'G' => 
         array (
@@ -85,12 +89,12 @@ class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
         ),
         'Psr\\Log\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+            0 => __DIR__ . '/..' . '/psr/log/src',
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -112,6 +116,10 @@ class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
         array (
             0 => __DIR__ . '/..' . '/interfax/interfax/src/Interfax',
         ),
+        'Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-http/message-factory/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -130,11 +138,21 @@ class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
         ),
         'Classes\\' => 
         array (
-            0 => 'C:\\xampp\\htdocs\\TESTFORFAST\\vendor',
+            0 => 'C:\\xampp\\htdocs\\fasttestnow\\vendor',
         ),
         'Aws\\' => 
         array (
             0 => __DIR__ . '/..' . '/aws/aws-sdk-php/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Postmark\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/wildbit/postmark-php/src',
+            ),
         ),
     );
 
@@ -197,6 +215,7 @@ class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit8f412f8a15999390d0bbc3db00160456::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit8f412f8a15999390d0bbc3db00160456::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit8f412f8a15999390d0bbc3db00160456::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit8f412f8a15999390d0bbc3db00160456::$classMap;
 
         }, null, ClassLoader::class);

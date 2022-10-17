@@ -39,18 +39,18 @@ $columns = array(
 );
 
 /** SQL server connection information */
-$sql_details = array(
-    'user' => 'ftnhealt_good',
-    'pass' => '+D5EEhD#9,K;',
-    'db' => 'ftnhealt_health',
-    'host' => 'localhost'
-);
 // $sql_details = array(
-//     'user' => 'root',
-//     'pass' => '',
+//     'user' => 'ftnhealt_good',
+//     'pass' => '+D5EEhD#9,K;',
 //     'db' => 'ftnhealt_health',
 //     'host' => 'localhost'
 // );
+$sql_details = array(
+    'user' => 'root',
+    'pass' => '',
+    'db' => 'ftnhealt_health',
+    'host' => 'localhost:7307'
+);
 
 $where = "";
 $orderBy = ($_REQUEST['order'][0]['column'] == 0) ? "ORDER BY tbl_appointment.id DESC" : null;

@@ -105,3 +105,4 @@ function hasPermission($permission)
 	}
 	return in_array($permission, $permissions);
 }
+?>

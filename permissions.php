@@ -207,8 +207,7 @@ $roles = getData("SELECT * FROM tbl_roles");
 
                                                 </div>
 
-
-
+                                                
                                                 <div class="form-group">
                                                     <input type="checkbox" name="requisition_form" value="Requisition Form" id="requisition_form" <?php echo (in_array('requisition_form', $result[$roleid]) ? 'checked' : '') ?>>
                                                     <label for="requisition_form">Requisition Forms</label>

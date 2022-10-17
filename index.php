@@ -1,6 +1,8 @@
 <?php include('includes/css.php'); ?>
 <?php
+
 include("config/connection.php");
+
 if (isset($_SESSION['admin_name'])) {
   header("Location:dashboard.php");
   exit;

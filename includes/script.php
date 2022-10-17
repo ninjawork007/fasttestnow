@@ -11,6 +11,7 @@
 
 <!-- select 2 -->
 <script src="assets/vendor/select2/js/select2.full.min.js"></script>
+<script src="assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src="assets/js/plugins-init/select2-init.js"></script>
 
 <!-- Toastr -->
@@ -43,6 +44,5 @@
         }
     })();
 </script>
-
 
 

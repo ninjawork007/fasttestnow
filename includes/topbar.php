@@ -1,8 +1,6 @@
 <!-- Top Bar Start -->
 <?php
-$profile_qry = "SELECT * FROM tbl_settings WHERE id='1'";
-$profile_result = mysqli_query($mysqli, $profile_qry);
-$profile_row = mysqli_fetch_array($profile_result);
+
 $user_role_q ="SELECT * FROM tbl_roles WHERE id='".$_SESSION["role"]."'";
 $user_role_result = mysqli_query($mysqli, $user_role_q);
 $user_role_row = mysqli_fetch_array($user_role_result);

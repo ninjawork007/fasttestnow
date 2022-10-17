@@ -1,0 +1,91 @@
+<script src="assets/vendor/global/global.min.js"></script>
+<script src="assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script src="assets/vendor/chart.js/Chart.bundle.min.js"></script>
+<script src="assets/js/custom.min.js"></script>
+<script src="assets/js/deznav-init.js"></script>
+
+<!-- Datatable -->
+<script src="assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="assets/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+
+<!-- select 2 -->
+<script src="assets/vendor/select2/js/select2.full.min.js"></script>
+<script src="assets/js/plugins-init/select2-init.js"></script>
+
+<!-- Jquery Validation -->
+<script src="assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+
+
+<!-- Toastr -->
+<script src="assets/vendor/toastr/js/toastr.min.js"></script>
+
+<!-- All init script -->
+<script src="assets/js/plugins-init/toastr-init.js"></script>
+
+<script>
+    function showLoadingBar() {
+        $('#preloader').css("display", "block");
+        $("#main-wrapper").css("opacity", 0.6);
+    }
+    function hideLoadingBar() {
+        $('#preloader').css("display", "none");
+        $("#main-wrapper").css("opacity", 1);
+    }
+    (function() {
+        var redirect = false
+        if (navigator.userAgent.match(/iPhone/i)) {
+            redirect = true
+        }
+        var isAndroid = /(android)/i.test(navigator.userAgent)
+        var isMobile = /(mobile)/i.test(navigator.userAgent)
+        if (isAndroid && isMobile) {
+            redirect = true
+        }
+        if (redirect) {
+            $("a.brand-logo").removeAttr("href");
+        }
+    })();
+</script>
+<script>
+		(function($) {
+			var table = $('#example5').DataTable({
+				searching: false,
+				paging:true,
+				select: false,
+				//info: false,         
+				lengthChange:false 
+				
+			});
+			var table = $('#example3').DataTable({
+				searching: false,
+				paging:true,
+				select: false,
+				//info: false,         
+				lengthChange:false 
+				
+			});
+			var table = $('#example2').DataTable({
+				searching: false,
+				paging:true,
+				select: false,
+				//info: false,         
+				lengthChange:false 
+				
+			});
+			var table = $('#example4').DataTable({
+				searching: false,
+				paging:true,
+				select: false,
+				//info: false,         
+				lengthChange:false 
+				
+			});
+			$('#example tbody').on('click', 'tr', function () {
+				var data = table.row( this ).data();
+				
+			});
+		})(jQuery);
+	</script>
+
+

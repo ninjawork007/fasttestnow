@@ -1,3 +1,4 @@
+
 <!-- ========== Left Sidebar Start ========== -->
 <div class="deznav">
     <div class="deznav-scroll">
@@ -48,7 +49,11 @@
                                 <?php } ?>
                         </ul>
                     </li>
-            
+                    <?php if(hasPermission('requisition_form')) : ?>
+                    <li style="display: block;">
+                        <!-- <a href="requisition_form.php" class="ai-icon" aria-expanded="false"><i class="flaticon-381-heart"></i><span class="nav-text"> Requistion form </span></a> -->
+                    </li>
+                    <?php endif; ?>
             </ul>
 
         </div>

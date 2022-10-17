@@ -114,6 +114,7 @@ function requisition_forms() {
     $fetch = mysqli_fetch_all_n($q, MYSQLI_ASSOC);
 
     echo json_encode($fetch);
+    return;
 }
 
 
