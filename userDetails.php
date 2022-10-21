@@ -478,7 +478,6 @@ if (!hasPermission('report_history')) {
                             nth = $i + "th";
                         }
                         my_msg(`Warning`, `Please select the result of ${nth} report`);
-                        my_msg(`Success`, `The report uploaded successfully`);
                     } else {
                         numberOfSelectedResult ++;
                         if(numberOfReports == numberOfSelectedResult) {
