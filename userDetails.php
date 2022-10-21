@@ -35,7 +35,7 @@ if (!hasPermission('report_history')) {
         $currentdate = date('m/d/Y');
 
         // parse URL parameter
-        $result = json_decode($_GET['result']);
+        $result = json_decode($_POST['res']);
         $getInfo = json_decode($result, true);
         
         

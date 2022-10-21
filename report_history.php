@@ -70,7 +70,12 @@ require("includes/loader.php");
                         </table>
                     </div>
                 </div>
-
+                <form id="sendingData" action="userDetails.php" style="display: none;" method="POST">
+        
+                        <input type="hidden" class="form-control" name="res" id="res">
+                    
+                        <input type="submit" id="submitData">Send Data</button>
+                </form>
                 <?php include('includes/footer.php'); ?>
             </div>
             <?php include('includes/script.php'); ?>
@@ -137,9 +142,9 @@ require("includes/loader.php");
                         },
                         success: function(data) {
                             hideLoadingBar();
-                            var result = encodeURIComponent(JSON.stringify(data));
-                            console.log(result)
-                            location.href = `userDetails.php?result=${result}`;
+                            var result = JSON.stringify(data);
+                            $("#res").val(result);
+                            $("#sendingData").submit();
                         }
 
                     });
