@@ -155,11 +155,19 @@ if (!hasPermission('report_history')) {
                                     </table>
                                 </div>
                                 <div class="row">
+                                
                                     <!-- Begin File upload Modal -->
                                     <div class="modal fade" id="uploadFileModal" role="dialog">
+                                    <div class="alert alert-success solid alert-dismissible fade">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                                        <strong>Success!</strong> Reports successfully uploaded.
+                                        <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                                        </button>
+                                    </div>
                                         <div class="modal-dialog">
-                                            <div class="modal-content">
                                             
+                                            <div class="modal-content">
+                                                
                                                 <!-- Modal Header -->
                                                 <div class="modal-header">
                                                 <h6 class="modal-title">Multi file uploads</h6>
@@ -168,6 +176,7 @@ if (!hasPermission('report_history')) {
                                                 
                                                 <!-- Modal body -->
                                                 <div class="modal-body">
+                                                
                                                     <div class="form-group">
                                                         <label class="text-label">Report Type</label>
                                                         <select class="d-block w-100 default-select" id="type" name="type">
@@ -353,6 +362,7 @@ if (!hasPermission('report_history')) {
                                 </div>
                                 <div id="sources" style="display: none;">
                                 </div>
+                                
                                 <?php
                                             
                                             
@@ -467,7 +477,8 @@ if (!hasPermission('report_history')) {
                         } else {
                             nth = $i + "th";
                         }
-                        error_msg(`Please select the result of ${nth} report`);
+                        my_msg(`Warning`, `Please select the result of ${nth} report`);
+                        my_msg(`Success`, `The report uploaded successfully`);
                     } else {
                         numberOfSelectedResult ++;
                         if(numberOfReports == numberOfSelectedResult) {
@@ -518,15 +529,18 @@ if (!hasPermission('report_history')) {
                         hideLoadingBar();
                         var result = jQuery.parseJSON(data);
                         if(result.result == true) {
-                            window.location.reload();
+                            $("div.alert").addClass("show");
+                            setTimeout(function() {
+                                window.location.reload();
+                            }, 1000);
                         }
                         
                     }
                 });
             }
         })
-        function error_msg(msg) {
-            toastr.warning(msg, "Warning", {
+        function my_msg(type, msg) {
+            toastr.success(msg, type, {
                 positionClass: "toast-top-right",
                 timeOut: 5e3,
                 closeButton: !0,
