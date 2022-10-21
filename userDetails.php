@@ -446,16 +446,44 @@ if (!hasPermission('report_history')) {
             });
         });
         $("#upload").click(function() {
-            
-            $("a.fileuploader-action-start").each(function() {
-                
-                $(this).trigger("click");
-                
-                if($("a.fileuploader-action-start").length == 0) {
-                    setTimeout(sendData, 500);
+            var numberOfReports = $("ul.fileuploader-items-list li").length;
+            var $i = 0;
+            var numberOfSelectedResult = 0    
 
-                }
-            })
+                $("ul.fileuploader-items-list li").each(function() {
+                    $i ++;
+                    var nth = "";
+                    var $this = $(this).find("div.column-title select");
+                    
+                    if($this.val() == "" || $this.val() == null) {
+                        if($i == 1) {
+                            nth = "1st";
+                        }
+                        else if($i == 2) {
+                            nth = "2nd"
+                        }
+                        else if($i == 3) {
+                            nth = "3rd"
+                        } else {
+                            nth = $i + "th";
+                        }
+                        error_msg(`Please select the result of ${nth} report`);
+                    } else {
+                        numberOfSelectedResult ++;
+                        if(numberOfReports == numberOfSelectedResult) {
+                            $("a.fileuploader-action-start").each(function() {
+                    
+                                $(this).trigger("click");
+                                
+                                if($("a.fileuploader-action-start").length == 0) {
+                                    setTimeout(sendData, 500);
+                                }
+
+                            })
+                        }
+                    }
+                })
+            
 
             function sendData() {
                 var files = [];
@@ -466,11 +494,14 @@ if (!hasPermission('report_history')) {
                     files.push($this.val());
                     extensions.push($this.attr("title"));
                 }
+                
+
                 $("ul.fileuploader-items-list li").each(function() {
                     var $this = $(this).find("div.column-title select");
                     testResults.push($this.val());
+
                 })
-                console.log(extensions);
+
                 $.ajax({
                     type: "POST",
                     url: 'uploadUserReport.php',
@@ -486,13 +517,34 @@ if (!hasPermission('report_history')) {
                     success: function(data) {
                         hideLoadingBar();
                         var result = jQuery.parseJSON(data);
-                        alert(result.result)
-                        //location.href = `userDetails.php?result=${result}`;
+                        if(result.result == true) {
+                            window.location.reload();
+                        }
+                        
                     }
-
                 });
             }
         })
+        function error_msg(msg) {
+            toastr.warning(msg, "Warning", {
+                positionClass: "toast-top-right",
+                timeOut: 5e3,
+                closeButton: !0,
+                debug: !1,
+                newestOnTop: !0,
+                progressBar: !0,
+                preventDuplicates: !0,
+                onclick: null,
+                showDuration: "300",
+                hideDuration: "1000",
+                extendedTimeOut: "1000",
+                showEasing: "swing",
+                hideEasing: "linear",
+                showMethod: "fadeIn",
+                hideMethod: "fadeOut",
+                tapToDismiss: !1
+            })
+        }
     </script>
     <!-- Circle progress -->
 

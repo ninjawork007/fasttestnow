@@ -128,7 +128,7 @@ for($j = 0; $j < count($outputs); $j ++) :
             // var_dump($sql);die;
             $q = mysqli_query($con, $sql);
             if($q) {
-                if($j == count($outputs))
+                if(($j+1) == count($outputs))
                     $flag = true;
             }
             unlink($sourceFile);
