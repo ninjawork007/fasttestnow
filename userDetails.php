@@ -41,7 +41,7 @@ if (!hasPermission('report_history')) {
         
         $generatedReports = $getInfo['GeneratedReports'];
         $userInfo = $getInfo['ToBeGeneratedReports'];
-
+        $id = $userInfo['id'];
         $name = $userInfo['name'];
         $email = $userInfo['email'];
         $phone = $userInfo['phone'];
@@ -155,6 +155,47 @@ if (!hasPermission('report_history')) {
                                     </table>
                                 </div>
                                 <div class="row">
+                                    <!-- Begin File upload Modal -->
+                                    <div class="modal fade" id="uploadFileModal" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                <h6 class="modal-title">Multi file uploads</h6>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <label class="text-label">Report Type</label>
+                                                        <select class="d-block w-100 default-select" id="type" name="type">
+                                                            <option value="1"> Visby PCR</option>
+                                                            <option value="2">Antigen</option>
+                                                            <option value="3">Accula</option>
+                                                            <option value="4"> Antibody</option>
+                                                            <option value="5">Flu</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="text-label">Choose Files</label>
+                                                        <input type="file" name="files" id="myfiles">
+                                                        <input type="hidden" class="userID" value="<?php echo $id; ?>">
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary" id="upload">Upload</button>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- ended file upload -->
                                     <div class="mt-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                         <p>
                                             <h4 class="card-title">
@@ -225,7 +266,7 @@ if (!hasPermission('report_history')) {
                                             
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item d-flex px-0 justify-content-between">
-                                            <a href="#" style="width:307px; margin-top: auto;" ><strong class="align-bottom h4"><u>Upload Report</u></strong> </a>
+                                            <a href="javascript:void(0);" style="width:307px; margin-top: auto;" data-toggle="modal" data-target="#uploadFileModal" id="modalBtn"><strong class="align-bottom h4"><u>Upload Report</u></strong> </a>
                                                 <span class="mb-0">
                                                     <small>This will open a upload field where a Nurse can upload a report 
                                                     from a 3rd party lab/vendor. Once uploaded the Patient
@@ -310,7 +351,8 @@ if (!hasPermission('report_history')) {
                                     </div>
                                     
                                 </div>
-                                
+                                <div id="sources" style="display: none;">
+                                </div>
                                 <?php
                                             
                                             
@@ -343,8 +385,113 @@ if (!hasPermission('report_history')) {
         Scripts
     ***********************************-->
     <script>
+        var userInfo = '<?php echo json_encode($userInfo); ?>';
+        var fileSources = [];
+
         $(document).ready(function() {
+            
+            // change the text
+            // var htm = $("div.modal-body div.form-group:nth-child(2)").html(); 
+            // var str = htm.toString();
+            // var text = str.replace(/innostudio.de/g, 'Fast Test Now'); 
+            // html = $.parseHTML( text ),
+            // $("div.modal-body div.form-group:nth-child(2)").append(html);
+
+           
             $(".dashboard_bar").html("User Detail");
+            
+           
+            $('input[name="files"]').fileuploader({
+                onSelect: function(item) {
+                    
+                    if (!item.html.find('.fileuploader-action-start').length)
+                        item.html.find('.fileuploader-action-remove').before('<a class="fileuploader-action fileuploader-action-start" title="Upload"><i></i></a>');
+                        item.html.find('.column-title span').after('<select name="report_results" id="report_results" class="form-control" required><option value="">--Select Results--</option><option value="0" >Negative</option><option value="1">Positive</option>');
+
+                    $("div.column-title").each(function(){
+                        $(this).children(":first-child").text($(this).children(":first-child").text().replace("innostudio.de_",""));
+                        $(this).children(":first-child").attr('title', $(this).children(":first-child").text().replace("innostudio.de_",""));
+                    });
+                },
+                upload: {
+                    url: './upload/ajax_upload_file.php',
+                    data: null,
+                    type: 'POST',
+                    enctype: 'multipart/form-data',
+                    start: false,
+                    synchron: true,
+                    onSuccess: function(result, item) {
+                        var data = jQuery.parseJSON(result);
+                        console.log(data);
+                        var $fileName = data.files[0].name;
+                        var $type = data.files[0].extension;
+                        var src = `uploads/${$fileName}`;
+                        var input = `<input id="source" value="${src}" title="${$type}">`;
+                        $("#sources").append(input);
+                        item.html.find('.fileuploader-action-remove').addClass('fileuploader-action-success');
+                    },
+                    onError: function(item) {
+                        item.upload.status != 'cancelled' && item.html.find('.fileuploader-action-retry').length == 0 ? item.html.find('.column-actions').prepend(
+                            '<a class="fileuploader-action fileuploader-action-retry" title="Retry"><i></i></a>'
+                        ) : null;
+                    },
+                    onComplete: null,
+                },
+                onRemove: function(item) {
+                    // send POST request
+                    $.post('./upload/ajax_remove_file.php', {
+                        file: item.name
+                    });
+                }
+            });
+        });
+        $("#upload").click(function() {
+            
+            $("a.fileuploader-action-start").each(function() {
+                
+                $(this).trigger("click");
+                
+                if($("a.fileuploader-action-start").length == 0) {
+                    setTimeout(sendData, 500);
+
+                }
+            })
+
+            function sendData() {
+                var files = [];
+                var extensions = [];
+                var testResults = [];
+                for(var i = 0; i < $("div#sources input#source").length; i ++) {
+                    var $this = $("div#sources input#source").eq(i);
+                    files.push($this.val());
+                    extensions.push($this.attr("title"));
+                }
+                $("ul.fileuploader-items-list li").each(function() {
+                    var $this = $(this).find("div.column-title select");
+                    testResults.push($this.val());
+                })
+                console.log(extensions);
+                $.ajax({
+                    type: "POST",
+                    url: 'uploadUserReport.php',
+                    data: {
+                        method: 'uploadUserReport',
+                        appointment_id: $(".userID").val(),
+                        testType: $("select#type option:selected").val(),
+                        mySource: files,
+                        userInfo: JSON.parse(userInfo),
+                        extensions: extensions,
+                        results: testResults
+                    },
+                    success: function(data) {
+                        hideLoadingBar();
+                        var result = jQuery.parseJSON(data);
+                        alert(result.result)
+                        //location.href = `userDetails.php?result=${result}`;
+                    }
+
+                });
+            }
         })
     </script>
     <!-- Circle progress -->

@@ -14,12 +14,14 @@
 <script src="assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src="assets/js/plugins-init/select2-init.js"></script>
 
+
 <!-- Toastr -->
 <script src="assets/vendor/toastr/js/toastr.min.js"></script>
 
 <!-- All init script -->
 <script src="assets/js/plugins-init/toastr-init.js"></script>
-
+<!-- Multi file uploads -->
+<script src="assets/js/jquery.fileuploader.min.js" type="text/javascript"></script>
 <script>
     function showLoadingBar() {
         $('#preloader').css("display", "block");
