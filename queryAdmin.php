@@ -1479,6 +1479,21 @@ function sendEmail($action, $id, $test_id)
                             </td></tr>			
                             </tbody>
                         </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="line-height: 14px; padding: 0 25px;">
+                            <tbody><tr><td style="width: 14%;">
+                                <font face="Arial, Helvetica, sans-serif" size="5" color="#57697e" style="font-size: 22px;">
+                                <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #2a2929; font-weight: bold;">
+                                    User Portal:
+                                </span></font>
+                                <!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
+                            </td><td>
+                                <a href="https:fasttestnow.health/user_portal/login.php?email=' . $receiver . '" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold;">
+                                    <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#0074fe">
+                                    Download Submission PDF	</font></a>
+                                <!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
+                            </td></tr>			
+                            </tbody>
+                        </table>
                         <div style="text-align: left; padding: 10px 25px;">
                             <font face="Arial, Helvetica, sans-serif" size="3" color="#717171" style="font-size: 27px;">
                             <span style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; color: #2a2929;">
@@ -1696,6 +1711,21 @@ function sendEmail($action, $id, $test_id)
                                 <!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
                             </td><td>
                                 <a href="https://fasttestnowreports.s3.amazonaws.com/REPORTS/' . $awsPdfFile . '" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold;">
+                                    <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#0074fe">
+                                    Download Submission PDF	</font></a>
+                                <!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
+                            </td></tr>			
+                            </tbody>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="line-height: 14px; padding: 0 25px;">
+                            <tbody><tr><td style="width: 14%;">
+                                <font face="Arial, Helvetica, sans-serif" size="5" color="#57697e" style="font-size: 22px;">
+                                <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #2a2929; font-weight: bold;">
+                                    User Portal:
+                                </span></font>
+                                <!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
+                            </td><td>
+                                <a href="https:fasttestnow.health/user_portal/login.php?email=' . $receiver . '" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold;">
                                     <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#0074fe">
                                     Download Submission PDF	</font></a>
                                 <!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
