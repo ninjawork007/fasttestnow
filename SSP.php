@@ -138,7 +138,7 @@ class SSP
         $globalSearch = array();
         $columnSearch = array();
         $dtColumns = self::pluck($columns, 'dt');
-
+        
         if (isset($request['search']) && $request['search']['value'] != '') {
             $str = $request['search']['value'];
 
@@ -210,11 +210,11 @@ class SSP
     {
         $bindings = array();
         $db = self::db($conn);
-
+        
         // Build the SQL query string from the request
         $limit = self::limit($request, $columns);
-        $order = self::order($request, $columns);
-        $where = self::filter($request, $columns, $bindings);
+        $order = self::order($request, $columns);   
+        $where = self::filter($request, $columns, $bindings);        
 
         // Main query to actually get the data
         $data = self::sql_exec($db, $bindings,
@@ -233,6 +233,7 @@ class SSP
         );
         $recordsFiltered = $resFilterLength[0][0];
 
+        $bindings = (!empty($whereAll) ? $bindings : []);
         // Total data set length
         $resTotalLength = self::sql_exec($db,
             "SELECT COUNT(`{$primaryKey}`)
@@ -288,8 +289,8 @@ class SSP
         // Build the SQL query string from the request
         $limit = self::limit($request, $columns);
         $order = ($orderBy !== null) ? $orderBy : self::order($request, $columns);
-        //$order = self::order($request, $columns);
-        $where = self::filter($request, $columns, $bindings);
+        //$order = self::order($request, $columns);    
+        $where = self::filter($request, $columns, $bindings);        
 
         $whereResult = self::_flatten($whereResult);
         $whereAll = self::_flatten($whereAll);
@@ -325,6 +326,7 @@ class SSP
 			 $where) as tb"
         );
         $recordsFiltered = $resFilterLength[0][0];
+        $bindings = (!empty($whereAll) ? $bindings : []);
         // Total data set length
         $resTotalLength = self::sql_exec($db, $bindings,
             "SELECT COUNT(*)
