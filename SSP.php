@@ -31,8 +31,7 @@ class SSP
 
         return $out;
     }
-
-
+          
     /**
      * Database connection
      *
