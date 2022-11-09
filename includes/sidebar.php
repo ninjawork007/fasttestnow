@@ -35,6 +35,11 @@
                         <a href="report_history.php" class="ai-icon" aria-expanded="false"><i class="mdi mdi-history"></i><span class="nav-text"> Report History </span></a>
                     </li>
                     <?php endif; ?>
+                    <?php if(hasPermission('appointment_history')) : ?>
+                    <li style="display: block;">
+                        <a href="appointment_history.php" class="ai-icon" aria-expanded="false"><i class="mdi mdi-appointment"></i><span class="nav-text"> Appointment History </span></a>
+                    </li>
+                    <?php endif; ?>
                     <li>
                         <a href="javascript:void(0);" class="has-arrow ai-icon" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="nav-text"> User management  </span></a>
                         <ul aria-expanded="false">

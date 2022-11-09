@@ -180,7 +180,10 @@ $roles = getData("SELECT * FROM tbl_roles");
                                                     <label for="report_history">Report History</label>
                                                 </div>
 
-
+                                                <div class="form-group">
+                                                    <input type="checkbox" name="appointment_history" value="appointment History" id="report_history" <?php echo (in_array('appointment_history', $result[$roleid]) ? 'checked' : '') ?>>
+                                                    <label for="appointment_history">Appointment History</label>
+                                                </div>
 
                                                 <div class="form-group">
                                                     <input type="checkbox" name="user_management" id="user_management<?= $role['id'] ?>" onclick="checkAll('user_management<?= $role['id'] ?>','us_manage')">
