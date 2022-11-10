@@ -436,7 +436,7 @@ if (!hasPermission('report_history')) {
                         var $fileName = data.files[0].name;
                         var $type = data.files[0].extension;
                         var src = `uploads/${$fileName}`;
-                        var input = `<input id="source" value="${src}" title="${$type}">`;
+                        var input = `<input class="sourceURL" value="${src}" title="${$type}">`;
                         $("#sources").append(input);
                         item.html.find('.fileuploader-action-remove').addClass('fileuploader-action-success');
                     },
@@ -486,7 +486,7 @@ if (!hasPermission('report_history')) {
                                 $(this).trigger("click");
                                 
                                 if($("a.fileuploader-action-start").length == 0) {
-                                    setTimeout(sendData, 500);
+                                    setTimeout(sendData, 2000);
                                 }
 
                             })
@@ -499,8 +499,8 @@ if (!hasPermission('report_history')) {
                 var files = [];
                 var extensions = [];
                 var testResults = [];
-                for(var i = 0; i < $("div#sources input#source").length; i ++) {
-                    var $this = $("div#sources input#source").eq(i);
+                for(var i = 0; i < $("div#sources input.sourceURL").length; i ++) {
+                    var $this = $("div#sources input.sourceURL").eq(i);
                     files.push($this.val());
                     extensions.push($this.attr("title"));
                 }
@@ -511,7 +511,7 @@ if (!hasPermission('report_history')) {
                     testResults.push($this.val());
 
                 })
-
+                
                 $.ajax({
                     type: "POST",
                     url: 'uploadUserReport.php',
@@ -527,7 +527,8 @@ if (!hasPermission('report_history')) {
                     success: function(data) {
                         hideLoadingBar();
                         var result = jQuery.parseJSON(data);
-                        if(result.result == true) {
+                        console.log(result.result);
+                        if(result.result == 1) {
                             $("div.alert").addClass("show");
                             setTimeout(function() {
                                 window.location.reload();

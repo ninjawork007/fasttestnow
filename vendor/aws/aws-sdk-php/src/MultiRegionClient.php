@@ -22,8 +22,6 @@ class MultiRegionClient implements AwsClientInterface
     private $handlerList;
     /** @var array */
     private $aliases;
-    /** @var callable */
-    private $customHandler;
 
     public static function getArguments()
     {
@@ -114,11 +112,6 @@ class MultiRegionClient implements AwsClientInterface
             list($region, $args) = $this->getRegionFromArgs($command->toArray());
             $command = $this->getClientFromPool($region)
                 ->getCommand($command->getName(), $args);
-
-            if ($this->isUseCustomHandler()) {
-                $command->getHandlerList()->setHandler($this->customHandler);
-            }
-
             return $this->executeAsync($command);
         });
 
@@ -196,16 +189,6 @@ class MultiRegionClient implements AwsClientInterface
     public function getEndpoint()
     {
         return $this->getClientFromPool()->getEndpoint();
-    }
-
-    public function useCustomHandler(callable $handler)
-    {
-        $this->customHandler = $handler;
-    }
-
-    private function isUseCustomHandler()
-    {
-        return isset($this->customHandler);
     }
 
     /**

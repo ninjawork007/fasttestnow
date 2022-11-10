@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Tracy\Dumper;
 
-use Tracy;
 use Tracy\Helpers;
 
 
@@ -22,7 +21,7 @@ final class Describer
 	public const HIDDEN_VALUE = '*****';
 
 	// Number.MAX_SAFE_INTEGER
-	private const JsSafeInteger = 1 << 53 - 1;
+	private const JS_SAFE_INTEGER = 1 << 53 - 1;
 
 	/** @var int */
 	public $maxDepth = 7;
@@ -82,12 +81,11 @@ final class Describer
 	/**
 	 * @return mixed
 	 */
-	private function describeVar($var, int $depth = 0, ?int $refId = null)
+	private function describeVar($var, int $depth = 0, int $refId = null)
 	{
 		if ($var === null || is_bool($var)) {
 			return $var;
 		}
-
 		$m = 'describe' . explode(' ', gettype($var))[0];
 		return $this->$m($var, $depth, $refId);
 	}
@@ -98,7 +96,7 @@ final class Describer
 	 */
 	private function describeInteger(int $num)
 	{
-		return $num <= self::JsSafeInteger && $num >= -self::JsSafeInteger
+		return $num <= self::JS_SAFE_INTEGER && $num >= -self::JS_SAFE_INTEGER
 			? $num
 			: new Value(Value::TYPE_NUMBER, "$num");
 	}
@@ -112,7 +110,6 @@ final class Describer
 		if (!is_finite($num)) {
 			return new Value(Value::TYPE_NUMBER, (string) $num);
 		}
-
 		$js = json_encode($num);
 		return strpos($js, '.')
 			? $num
@@ -139,7 +136,7 @@ final class Describer
 	/**
 	 * @return Value|array
 	 */
-	private function describeArray(array $arr, int $depth = 0, ?int $refId = null)
+	private function describeArray(array $arr, int $depth = 0, int $refId = null)
 	{
 		if ($refId) {
 			$res = new Value(Value::TYPE_REF, 'p' . $refId);
@@ -158,7 +155,6 @@ final class Describer
 				$value->length = count($arr);
 				$arr = array_slice($arr, 0, $this->maxItems, true);
 			}
-
 			$items = &$value->items;
 
 		} elseif ($arr && $this->maxDepth && $depth >= $this->maxDepth) {
@@ -214,7 +210,6 @@ final class Describer
 				$this->addPropertyTo($value, (string) $k, $v, Value::PROP_VIRTUAL, $this->getReferenceId($props, $k));
 			}
 		}
-
 		return new Value(Value::TYPE_REF, $id);
 	}
 
@@ -238,7 +233,6 @@ final class Describer
 				}
 			}
 		}
-
 		return new Value(Value::TYPE_REF, $id);
 	}
 
@@ -251,7 +245,6 @@ final class Describer
 		if (preg_match('#^[\w!\#$%&*+./;<>?@^{|}~-]{1,50}$#D', $key) && !preg_match('#^(true|false|null)$#iD', $key)) {
 			return $key;
 		}
-
 		$value = $this->describeString($key);
 		return is_string($value) // ensure result is Value
 			? new Value(Value::TYPE_STRING_HTML, $key, Helpers::utf8Length($key))
@@ -264,8 +257,8 @@ final class Describer
 		string $k,
 		$v,
 		$type = Value::PROP_VIRTUAL,
-		?int $refId = null,
-		?string $class = null
+		int $refId = null,
+		string $class = null
 	) {
 		if ($value->depth && $this->maxItems && count($value->items ?? []) >= $this->maxItems) {
 			$value->length = ($value->length ?? count($value->items)) + 1;
@@ -300,9 +293,10 @@ final class Describer
 	}
 
 
-	private function isSensitive(string $key, $val, ?string $class = null): bool
+	private function isSensitive(string $key, $val, string $class = null): bool
 	{
-		return ($this->scrubber !== null && ($this->scrubber)($key, $val, $class))
+		return
+			($this->scrubber !== null && ($this->scrubber)($key, $val, $class))
 			|| isset($this->keysToHide[strtolower($key)])
 			|| isset($this->keysToHide[strtolower($class . '::$' . $key)]);
 	}
@@ -320,15 +314,12 @@ final class Describer
 			if ((!$rr = \ReflectionReference::fromArrayElement($arr, $key))) {
 				return null;
 			}
-
 			$tmp = &$this->references[$rr->getId()];
 			if ($tmp === null) {
 				return $tmp = count($this->references);
 			}
-
 			return $tmp;
 		}
-
 		$uniq = new \stdClass;
 		$copy = $arr;
 		$orig = $copy[$key];
@@ -336,14 +327,12 @@ final class Describer
 		if ($arr[$key] !== $uniq) {
 			return null;
 		}
-
 		$res = array_search($uniq, $this->references, true);
 		$copy[$key] = $orig;
 		if ($res === false) {
 			$this->references[] = &$arr[$key];
 			return count($this->references);
 		}
-
 		return $res + 1;
 	}
 
@@ -354,7 +343,7 @@ final class Describer
 	private static function findLocation(): ?array
 	{
 		foreach (debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS) as $item) {
-			if (isset($item['class']) && ($item['class'] === self::class || $item['class'] === Tracy\Dumper::class)) {
+			if (isset($item['class']) && ($item['class'] === self::class || $item['class'] === \Tracy\Dumper::class)) {
 				$location = $item;
 				continue;
 			} elseif (isset($item['function'])) {
@@ -372,7 +361,6 @@ final class Describer
 				} catch (\ReflectionException $e) {
 				}
 			}
-
 			break;
 		}
 
@@ -385,7 +373,6 @@ final class Describer
 				trim(preg_match('#\w*dump(er::\w+)?\(.*\)#i', $line, $m) ? $m[0] : $line),
 			];
 		}
-
 		return null;
 	}
 }

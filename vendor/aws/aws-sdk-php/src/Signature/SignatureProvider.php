@@ -43,7 +43,6 @@ class SignatureProvider
     private static $s3v4SignedServices = [
         's3' => true,
         's3control' => true,
-        's3-object-lambda' => true,
     ];
 
     /**
@@ -120,8 +119,6 @@ class SignatureProvider
                     return !empty(self::$s3v4SignedServices[$service])
                         ? new S3SignatureV4($service, $region)
                         : new SignatureV4($service, $region);
-                case 'v4a':
-                    return new SignatureV4($service, $region, ['use_v4a' => true]);
                 case 'v4-unsigned-body':
                     return !empty(self::$s3v4SignedServices[$service])
                     ? new S3SignatureV4($service, $region, ['unsigned-body' => 'true'])

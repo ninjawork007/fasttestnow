@@ -19,7 +19,7 @@ use Tracy;
 class PsrToTracyLoggerAdapter implements Tracy\ILogger
 {
 	/** Tracy logger level to PSR-3 log level mapping */
-	private const LevelMap = [
+	private const LEVEL_MAP = [
 		Tracy\ILogger::DEBUG => Psr\Log\LogLevel::DEBUG,
 		Tracy\ILogger::INFO => Psr\Log\LogLevel::INFO,
 		Tracy\ILogger::WARNING => Psr\Log\LogLevel::WARNING,
@@ -54,7 +54,7 @@ class PsrToTracyLoggerAdapter implements Tracy\ILogger
 		}
 
 		$this->psrLogger->log(
-			self::LevelMap[$level] ?? Psr\Log\LogLevel::ERROR,
+			self::LEVEL_MAP[$level] ?? Psr\Log\LogLevel::ERROR,
 			$message,
 			$context
 		);

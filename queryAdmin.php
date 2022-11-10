@@ -1487,9 +1487,9 @@ function sendEmail($action, $id, $test_id)
                                 </span></font>
                                 <!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
                             </td><td>
-                                <a href="https:fasttestnow.health/user_portal/login.php?email=' . $receiver . '" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold;">
+                                <a href="https://fasttestnow.health/user_portal/login.php?email=' . $receiver . '" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold;">
                                     <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#0074fe">
-                                    Download Submission PDF	</font></a>
+                                    Click User Portal Link	</font></a>
                                 <!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
                             </td></tr>			
                             </tbody>

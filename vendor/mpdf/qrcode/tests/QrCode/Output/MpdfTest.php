@@ -3,13 +3,16 @@
 namespace Mpdf\QrCode\Output;
 
 use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mpdf\QrCode\QrCode;
 
 /**
  * @group unit
  */
-class MpdfTest extends \Yoast\PHPUnitPolyfills\TestCases\TestCase
+class MpdfTest extends \PHPUnit\Framework\TestCase
 {
+
+	use MockeryPHPUnitIntegration;
 
 	public function testOutputL()
 	{
@@ -73,17 +76,6 @@ class MpdfTest extends \Yoast\PHPUnitPolyfills\TestCases\TestCase
 		$output = new Mpdf();
 
 		$output->output($code, $mpdf, 0, 0, 0);
-	}
-
-	protected function tear_down()
-	{
-		parent::tear_down();
-
-		if ($container = Mockery::getContainer()) {
-			$this->addToAssertionCount($container->mockery_getExpectationCount());
-		}
-
-		Mockery::close();
 	}
 
 }

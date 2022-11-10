@@ -1,0 +1,4 @@
+[09-Nov-2022 10:15:44 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/ftnhealth/public_html/user_portal/includes/database.php on line 14
+[09-Nov-2022 10:15:44 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/ftnhealth/public_html/OTP.php on line 32
+[09-Nov-2022 10:15:44 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/ftnhealth/public_html/OTP.php on line 34
+[09-Nov-2022 10:15:44 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/ftnhealth/public_html/OTP.php on line 39

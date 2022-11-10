@@ -1,248 +1,186 @@
-<?php return array(
-    'root' => array(
-        'name' => '__root__',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '69580a5811cb7da18c2879ed9ea1b27640bc96b1',
-        'type' => 'library',
-        'install_path' => __DIR__ . '/../../',
-        'aliases' => array(),
-        'dev' => true,
+<?php return array (
+  'root' => 
+  array (
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
+    'aliases' => 
+    array (
     ),
-    'versions' => array(
-        '__root__' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '69580a5811cb7da18c2879ed9ea1b27640bc96b1',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'aws/aws-crt-php' => array(
-            'pretty_version' => 'v1.0.2',
-            'version' => '1.0.2.0',
-            'reference' => '3942776a8c99209908ee0b287746263725685732',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../aws/aws-crt-php',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'aws/aws-sdk-php' => array(
-            'pretty_version' => '3.238.3',
-            'version' => '3.238.3.0',
-            'reference' => '14fb64c934614ea5a52c9931189f687f30b6ba3b',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../aws/aws-sdk-php',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'guzzlehttp/guzzle' => array(
-            'pretty_version' => '7.5.0',
-            'version' => '7.5.0.0',
-            'reference' => 'b50a2a1251152e43f6a37f0fa053e730a67d25ba',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../guzzlehttp/guzzle',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'guzzlehttp/promises' => array(
-            'pretty_version' => '1.5.2',
-            'version' => '1.5.2.0',
-            'reference' => 'b94b2807d85443f9719887892882d0329d1e2598',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../guzzlehttp/promises',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'guzzlehttp/psr7' => array(
-            'pretty_version' => '2.4.1',
-            'version' => '2.4.1.0',
-            'reference' => '69568e4293f4fa993f3b0e51c9723e1e17c41379',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../guzzlehttp/psr7',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'interfax/interfax' => array(
-            'pretty_version' => 'v1.1.5',
-            'version' => '1.1.5.0',
-            'reference' => '80b52ea650ed85aabe4855a9b669d265cffd57d1',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../interfax/interfax',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'mpdf/mpdf' => array(
-            'pretty_version' => 'v8.1.2',
-            'version' => '8.1.2.0',
-            'reference' => 'a8a22f4874157e490d41b486053a20bec42e182c',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../mpdf/mpdf',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'mpdf/qrcode' => array(
-            'pretty_version' => 'v1.2.0',
-            'version' => '1.2.0.0',
-            'reference' => '0c09fce8b28707611c3febdd1ca424d40f172184',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../mpdf/qrcode',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'mtdowling/jmespath.php' => array(
-            'pretty_version' => '2.6.1',
-            'version' => '2.6.1.0',
-            'reference' => '9b87907a81b87bc76d19a7fb2d61e61486ee9edb',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../mtdowling/jmespath.php',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'myclabs/deep-copy' => array(
-            'pretty_version' => '1.11.0',
-            'version' => '1.11.0.0',
-            'reference' => '14daed4296fae74d9e3201d2c4925d1acb7aa614',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../myclabs/deep-copy',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'paragonie/random_compat' => array(
-            'pretty_version' => 'v9.99.100',
-            'version' => '9.99.100.0',
-            'reference' => '996434e5492cb4c3edcb9168db6fbb1359ef965a',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../paragonie/random_compat',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'php-http/message-factory' => array(
-            'pretty_version' => 'v1.0.2',
-            'version' => '1.0.2.0',
-            'reference' => 'a478cb11f66a6ac48d8954216cfed9aa06a501a1',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../php-http/message-factory',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'psr/http-client' => array(
-            'pretty_version' => '1.0.1',
-            'version' => '1.0.1.0',
-            'reference' => '2dfb5f6c5eff0e91e20e913f8c5452ed95b86621',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../psr/http-client',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'psr/http-client-implementation' => array(
-            'dev_requirement' => false,
-            'provided' => array(
-                0 => '1.0',
-            ),
-        ),
-        'psr/http-factory' => array(
-            'pretty_version' => '1.0.1',
-            'version' => '1.0.1.0',
-            'reference' => '12ac7fcd07e5b077433f5f2bee95b3a771bf61be',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../psr/http-factory',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'psr/http-factory-implementation' => array(
-            'dev_requirement' => false,
-            'provided' => array(
-                0 => '1.0',
-            ),
-        ),
-        'psr/http-message' => array(
-            'pretty_version' => '1.0.1',
-            'version' => '1.0.1.0',
-            'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../psr/http-message',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'psr/http-message-implementation' => array(
-            'dev_requirement' => false,
-            'provided' => array(
-                0 => '1.0',
-            ),
-        ),
-        'psr/log' => array(
-            'pretty_version' => '2.0.0',
-            'version' => '2.0.0.0',
-            'reference' => 'ef29f6d262798707a9edd554e2b82517ef3a9376',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../psr/log',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'ralouphie/getallheaders' => array(
-            'pretty_version' => '3.0.3',
-            'version' => '3.0.3.0',
-            'reference' => '120b605dfeb996808c31b6477290a714d356e822',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../ralouphie/getallheaders',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'setasign/fpdi' => array(
-            'pretty_version' => 'v2.3.6',
-            'version' => '2.3.6.0',
-            'reference' => '6231e315f73e4f62d72b73f3d6d78ff0eed93c31',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../setasign/fpdi',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'shuchkin/simplexlsxgen' => array(
-            'pretty_version' => '1.2.16',
-            'version' => '1.2.16.0',
-            'reference' => 'aff0fa243d85c3c9fad9efd9adcd04bc47d421e2',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../shuchkin/simplexlsxgen',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'symfony/deprecation-contracts' => array(
-            'pretty_version' => 'v3.0.2',
-            'version' => '3.0.2.0',
-            'reference' => '26954b3d62a6c5fd0ea8a2a00c0353a14978d05c',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../symfony/deprecation-contracts',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'symfony/polyfill-mbstring' => array(
-            'pretty_version' => 'v1.26.0',
-            'version' => '1.26.0.0',
-            'reference' => '9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'tracy/tracy' => array(
-            'pretty_version' => 'v2.9.4',
-            'version' => '2.9.4.0',
-            'reference' => '0ed605329b095f5f5fe2db2adc3d1ee80c917294',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../tracy/tracy',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'wildbit/postmark-php' => array(
-            'pretty_version' => '4.0.4',
-            'version' => '4.0.4.0',
-            'reference' => 'd27cd97a5efefa72d4ea16c2fa307c22c4e5312c',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../wildbit/postmark-php',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
+    'reference' => '71047edbc63ba916c47cb922544282260ad0dff3',
+    'name' => '__root__',
+  ),
+  'versions' => 
+  array (
+    '__root__' => 
+    array (
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '71047edbc63ba916c47cb922544282260ad0dff3',
     ),
+    'aws/aws-sdk-php' => 
+    array (
+      'pretty_version' => '3.191.1',
+      'version' => '3.191.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '221eb3790a2f5cc73067ec1c13d4c788a0296351',
+    ),
+    'guzzlehttp/guzzle' => 
+    array (
+      'pretty_version' => '7.3.0',
+      'version' => '7.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7008573787b430c1c1f650e3722d9bba59967628',
+    ),
+    'guzzlehttp/promises' => 
+    array (
+      'pretty_version' => '1.4.1',
+      'version' => '1.4.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8e7d04f1f6450fef59366c399cfad4b9383aa30d',
+    ),
+    'guzzlehttp/psr7' => 
+    array (
+      'pretty_version' => '1.8.2',
+      'version' => '1.8.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'dc960a912984efb74d0a90222870c72c87f10c91',
+    ),
+    'mpdf/mpdf' => 
+    array (
+      'pretty_version' => 'v8.0.12',
+      'version' => '8.0.12.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9d94344844c9daec7266eb6dd14448f728aeccb1',
+    ),
+    'mpdf/qrcode' => 
+    array (
+      'pretty_version' => 'v1.1.1',
+      'version' => '1.1.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f3c0a99e37e8489f0b91b7d2c394dcba0b38d71c',
+    ),
+    'mtdowling/jmespath.php' => 
+    array (
+      'pretty_version' => '2.6.1',
+      'version' => '2.6.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9b87907a81b87bc76d19a7fb2d61e61486ee9edb',
+    ),
+    'myclabs/deep-copy' => 
+    array (
+      'pretty_version' => '1.10.2',
+      'version' => '1.10.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '776f831124e9c62e1a2c601ecc52e776d8bb7220',
+      'replaced' => 
+      array (
+        0 => '1.10.2',
+      ),
+    ),
+    'paragonie/random_compat' => 
+    array (
+      'pretty_version' => 'v9.99.100',
+      'version' => '9.99.100.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '996434e5492cb4c3edcb9168db6fbb1359ef965a',
+    ),
+    'psr/http-client' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2dfb5f6c5eff0e91e20e913f8c5452ed95b86621',
+    ),
+    'psr/http-client-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
+    ),
+    'psr/http-message' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
+    ),
+    'psr/http-message-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
+    ),
+    'psr/log' => 
+    array (
+      'pretty_version' => '1.1.4',
+      'version' => '1.1.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
+    ),
+    'ralouphie/getallheaders' => 
+    array (
+      'pretty_version' => '3.0.3',
+      'version' => '3.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '120b605dfeb996808c31b6477290a714d356e822',
+    ),
+    'setasign/fpdi' => 
+    array (
+      'pretty_version' => 'v2.3.6',
+      'version' => '2.3.6.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6231e315f73e4f62d72b73f3d6d78ff0eed93c31',
+    ),
+    'symfony/polyfill-mbstring' => 
+    array (
+      'pretty_version' => 'v1.23.1',
+      'version' => '1.23.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9174a3d80210dca8daa7f31fec659150bbeabfc6',
+    ),
+    'tracy/tracy' => 
+    array (
+      'pretty_version' => 'v2.8.6',
+      'version' => '2.8.6.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f3d2d6a1230a0a1a7b116c071ae4937e5e30101a',
+    ),
+  ),
 );

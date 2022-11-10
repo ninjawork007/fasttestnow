@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cb1e8075f6c8602d783cfc616322fe6",
+    "content-hash": "8fa27c097058a1c6f2f05af38e325abd",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.238.3",
+            "version": "3.241.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "14fb64c934614ea5a52c9931189f687f30b6ba3b"
+                "reference": "9a08ac83249a2e6d07c624802cbf961f7269a691"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/14fb64c934614ea5a52c9931189f687f30b6ba3b",
-                "reference": "14fb64c934614ea5a52c9931189f687f30b6ba3b",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9a08ac83249a2e6d07c624802cbf961f7269a691",
+                "reference": "9a08ac83249a2e6d07c624802cbf961f7269a691",
                 "shasum": ""
             },
             "require": {
@@ -146,9 +146,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.238.3"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.241.0"
             },
-            "time": "2022-10-07T18:16:40+00:00"
+            "time": "2022-11-08T19:16:53+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -364,16 +364,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.4.1",
+            "version": "2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "69568e4293f4fa993f3b0e51c9723e1e17c41379"
+                "reference": "67c26b443f348a51926030c83481b85718457d3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/69568e4293f4fa993f3b0e51c9723e1e17c41379",
-                "reference": "69568e4293f4fa993f3b0e51c9723e1e17c41379",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/67c26b443f348a51926030c83481b85718457d3d",
+                "reference": "67c26b443f348a51926030c83481b85718457d3d",
                 "shasum": ""
             },
             "require": {
@@ -463,7 +463,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.4.1"
+                "source": "https://github.com/guzzle/psr7/tree/2.4.3"
             },
             "funding": [
                 {
@@ -479,59 +479,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-08-28T14:45:39+00:00"
-        },
-        {
-            "name": "interfax/interfax",
-            "version": "v1.1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/interfax/interfax-php.git",
-                "reference": "80b52ea650ed85aabe4855a9b669d265cffd57d1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/interfax/interfax-php/zipball/80b52ea650ed85aabe4855a9b669d265cffd57d1",
-                "reference": "80b52ea650ed85aabe4855a9b669d265cffd57d1",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.2|^7.0"
-            },
-            "require-dev": {
-                "mikey179/vfsstream": "^1.6.7",
-                "squizlabs/php_codesniffer": "^2.7"
-            },
-            "suggest": {
-                "phpunit/phpunit": "Allows automated tests to be run without system-wide install (only version 4-7 are supported)."
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Test\\": "tests",
-                    "Interfax\\": "src/Interfax"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "InterFAX",
-                    "email": "dev@interfax.net"
-                },
-                {
-                    "name": "Mike Smith",
-                    "email": "mike.smith@camc-ltd.co.uk"
-                }
-            ],
-            "description": "Send and receive faxes with InterFAX",
-            "support": {
-                "issues": "https://github.com/interfax/interfax-php/issues",
-                "source": "https://github.com/interfax/interfax-php/tree/v1.1.5"
-            },
-            "time": "2021-03-12T19:18:50+00:00"
+            "time": "2022-10-26T14:07:24+00:00"
         },
         {
             "name": "mpdf/mpdf",
@@ -1064,30 +1012,30 @@
         },
         {
             "name": "psr/log",
-            "version": "2.0.0",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "ef29f6d262798707a9edd554e2b82517ef3a9376"
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/ef29f6d262798707a9edd554e2b82517ef3a9376",
-                "reference": "ef29f6d262798707a9edd554e2b82517ef3a9376",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.0"
+                "php": ">=5.3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Log\\": "src"
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1108,9 +1056,9 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/2.0.0"
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
-            "time": "2021-07-14T16:41:46+00:00"
+            "time": "2021-05-03T11:20:27+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -1229,78 +1177,26 @@
             "time": "2021-02-11T11:37:01+00:00"
         },
         {
-            "name": "shuchkin/simplexlsxgen",
-            "version": "1.2.16",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/shuchkin/simplexlsxgen.git",
-                "reference": "aff0fa243d85c3c9fad9efd9adcd04bc47d421e2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/shuchkin/simplexlsxgen/zipball/aff0fa243d85c3c9fad9efd9adcd04bc47d421e2",
-                "reference": "aff0fa243d85c3c9fad9efd9adcd04bc47d421e2",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "ext-zlib": "*",
-                "php": ">=5.4"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/SimpleXLSXGen.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sergey Shuchkin (SMSPILOT)",
-                    "email": "sergey.shuchkin@gmail.com",
-                    "homepage": "https://shuchkin.ru/"
-                }
-            ],
-            "description": "Export data to Excel XLSx file. PHP XLSX generator.",
-            "homepage": "https://github.com/shuchkin/simplexlsxgen",
-            "keywords": [
-                "backend",
-                "creator",
-                "excel",
-                "generator",
-                "php",
-                "xlsx"
-            ],
-            "support": {
-                "issues": "https://github.com/shuchkin/simplexlsxgen/issues",
-                "source": "https://github.com/shuchkin/simplexlsxgen/tree/1.2.16"
-            },
-            "time": "2022-08-12T12:57:41+00:00"
-        },
-        {
             "name": "symfony/deprecation-contracts",
-            "version": "v3.0.2",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "26954b3d62a6c5fd0ea8a2a00c0353a14978d05c"
+                "reference": "e8b495ea28c1d97b5e0c121748d6f9b53d075c66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/26954b3d62a6c5fd0ea8a2a00c0353a14978d05c",
-                "reference": "26954b3d62a6c5fd0ea8a2a00c0353a14978d05c",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/e8b495ea28c1d97b5e0c121748d6f9b53d075c66",
+                "reference": "e8b495ea28c1d97b5e0c121748d6f9b53d075c66",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.2"
+                "php": ">=7.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.0-dev"
+                    "dev-main": "2.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -1329,7 +1225,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.0.2"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.2"
             },
             "funding": [
                 {
@@ -1345,7 +1241,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-02T09:55:41+00:00"
+            "time": "2022-01-02T09:53:40+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1503,44 +1399,6 @@
                 "source": "https://github.com/nette/tracy/tree/v2.9.4"
             },
             "time": "2022-07-19T14:06:15+00:00"
-        },
-        {
-            "name": "wildbit/postmark-php",
-            "version": "4.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wildbit/postmark-php.git",
-                "reference": "d27cd97a5efefa72d4ea16c2fa307c22c4e5312c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wildbit/postmark-php/zipball/d27cd97a5efefa72d4ea16c2fa307c22c4e5312c",
-                "reference": "d27cd97a5efefa72d4ea16c2fa307c22c4e5312c",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.0|^7.0",
-                "php": ">=7.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Postmark\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "The officially supported client for Postmark (http://postmarkapp.com)",
-            "support": {
-                "issues": "https://github.com/wildbit/postmark-php/issues",
-                "source": "https://github.com/wildbit/postmark-php/tree/4.0.4"
-            },
-            "time": "2022-03-28T18:34:21+00:00"
         }
     ],
     "packages-dev": [],

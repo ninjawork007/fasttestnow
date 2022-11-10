@@ -73,8 +73,6 @@ use GuzzleHttp\Promise\PromiseInterface;
  * @method \GuzzleHttp\Promise\Promise getBucketPolicyAsync(array $args = [])
  * @method \Aws\Result getBucketTagging(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getBucketTaggingAsync(array $args = [])
- * @method \Aws\Result getBucketVersioning(array $args = [])
- * @method \GuzzleHttp\Promise\Promise getBucketVersioningAsync(array $args = [])
  * @method \Aws\Result getJobTagging(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getJobTaggingAsync(array $args = [])
  * @method \Aws\Result getMultiRegionAccessPoint(array $args = [])
@@ -113,8 +111,6 @@ use GuzzleHttp\Promise\PromiseInterface;
  * @method \GuzzleHttp\Promise\Promise putBucketPolicyAsync(array $args = [])
  * @method \Aws\Result putBucketTagging(array $args = [])
  * @method \GuzzleHttp\Promise\Promise putBucketTaggingAsync(array $args = [])
- * @method \Aws\Result putBucketVersioning(array $args = [])
- * @method \GuzzleHttp\Promise\Promise putBucketVersioningAsync(array $args = [])
  * @method \Aws\Result putJobTagging(array $args = [])
  * @method \GuzzleHttp\Promise\Promise putJobTaggingAsync(array $args = [])
  * @method \Aws\Result putMultiRegionAccessPointPolicy(array $args = [])
@@ -200,17 +196,24 @@ class S3ControlClient extends AwsClient
         parent::__construct($args);
         $stack = $this->getHandlerList();
         $stack->appendBuild(
+            S3ControlEndpointMiddleware::wrap(
+                $this->getRegion(),
+                [
+                    'dual_stack' => $this->getConfig('use_dual_stack_endpoint'),
+                ]
+            ),
+            's3control.endpoint_middleware'
+        );
+        $stack->appendBuild(
             EndpointArnMiddleware::wrap(
                 $this->getApi(),
                 $this->getRegion(),
                 [
                     'use_arn_region' => $this->getConfig('use_arn_region'),
-                    'dual_stack' =>
-                        $this->getConfig('use_dual_stack_endpoint')->isUseDualStackEndpoint(),
+                    'dual_stack' => $this->getConfig('use_dual_stack_endpoint'),
                     'endpoint' => isset($args['endpoint'])
                         ? $args['endpoint']
-                        : null,
-                    'use_fips_endpoint' => $this->getConfig('use_fips_endpoint'),
+                        : null
                 ]
             ),
             's3control.endpoint_arn_middleware'

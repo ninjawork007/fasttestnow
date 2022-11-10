@@ -277,3 +277,316 @@ Stack trace:
 [26-Aug-2022 16:13:02 US/Eastern] PHP Notice:  Undefined index: id in /home/ftnhealth/public_html/queryAdmin.php on line 186
 [26-Aug-2022 13:13:06 America/Los_Angeles] PHP Notice:  Undefined variable: admin_id in /home/ftnhealth/public_html/queryAdmin.php on line 1303
 [26-Aug-2022 13:13:06 America/Los_Angeles] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/ftnhealth/public_html/includes/functions.php on line 34
+[09-Nov-2022 10:31:42 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 10:31:42 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 05:31:42 US/Eastern] PHP Warning:  Illegal string offset 'firstName' in /home/ftnhealth/public_html/uploadUserReport.php on line 28
+[09-Nov-2022 05:31:42 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 28
+[09-Nov-2022 05:31:42 US/Eastern] PHP Warning:  Illegal string offset 'lastName' in /home/ftnhealth/public_html/uploadUserReport.php on line 29
+[09-Nov-2022 05:31:42 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 29
+[09-Nov-2022 05:31:42 US/Eastern] PHP Warning:  Illegal string offset 'phone' in /home/ftnhealth/public_html/uploadUserReport.php on line 30
+[09-Nov-2022 05:31:42 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 30
+[09-Nov-2022 05:31:42 US/Eastern] PHP Warning:  Illegal string offset 'email' in /home/ftnhealth/public_html/uploadUserReport.php on line 31
+[09-Nov-2022 05:31:42 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 31
+[09-Nov-2022 05:31:42 US/Eastern] PHP Warning:  Illegal string offset 'dob' in /home/ftnhealth/public_html/uploadUserReport.php on line 32
+[09-Nov-2022 05:31:42 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 32
+[09-Nov-2022 05:31:42 US/Eastern] PHP Warning:  Illegal string offset 'gender' in /home/ftnhealth/public_html/uploadUserReport.php on line 33
+[09-Nov-2022 05:31:42 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 33
+[09-Nov-2022 05:31:42 US/Eastern] PHP Warning:  Illegal string offset 'passport_no' in /home/ftnhealth/public_html/uploadUserReport.php on line 34
+[09-Nov-2022 05:31:42 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 34
+[09-Nov-2022 05:31:42 US/Eastern] PHP Warning:  Illegal string offset 'updated_at' in /home/ftnhealth/public_html/uploadUserReport.php on line 35
+[09-Nov-2022 05:31:42 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 35
+[09-Nov-2022 05:31:42 US/Eastern] PHP Warning:  Invalid argument supplied for foreach() in /home/ftnhealth/public_html/uploadUserReport.php on line 69
+[09-Nov-2022 05:31:42 US/Eastern] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/ftnhealth/public_html/uploadUserReport.php on line 97
+[09-Nov-2022 10:34:07 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 10:34:07 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 05:34:07 US/Eastern] PHP Warning:  Illegal string offset 'firstName' in /home/ftnhealth/public_html/uploadUserReport.php on line 28
+[09-Nov-2022 05:34:07 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 28
+[09-Nov-2022 05:34:07 US/Eastern] PHP Warning:  Illegal string offset 'lastName' in /home/ftnhealth/public_html/uploadUserReport.php on line 29
+[09-Nov-2022 05:34:07 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 29
+[09-Nov-2022 05:34:07 US/Eastern] PHP Warning:  Illegal string offset 'phone' in /home/ftnhealth/public_html/uploadUserReport.php on line 30
+[09-Nov-2022 05:34:07 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 30
+[09-Nov-2022 05:34:07 US/Eastern] PHP Warning:  Illegal string offset 'email' in /home/ftnhealth/public_html/uploadUserReport.php on line 31
+[09-Nov-2022 05:34:07 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 31
+[09-Nov-2022 05:34:07 US/Eastern] PHP Warning:  Illegal string offset 'dob' in /home/ftnhealth/public_html/uploadUserReport.php on line 32
+[09-Nov-2022 05:34:07 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 32
+[09-Nov-2022 05:34:07 US/Eastern] PHP Warning:  Illegal string offset 'gender' in /home/ftnhealth/public_html/uploadUserReport.php on line 33
+[09-Nov-2022 05:34:07 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 33
+[09-Nov-2022 05:34:07 US/Eastern] PHP Warning:  Illegal string offset 'passport_no' in /home/ftnhealth/public_html/uploadUserReport.php on line 34
+[09-Nov-2022 05:34:07 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 34
+[09-Nov-2022 05:34:07 US/Eastern] PHP Warning:  Illegal string offset 'updated_at' in /home/ftnhealth/public_html/uploadUserReport.php on line 35
+[09-Nov-2022 05:34:07 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 35
+[09-Nov-2022 05:34:07 US/Eastern] PHP Warning:  Invalid argument supplied for foreach() in /home/ftnhealth/public_html/uploadUserReport.php on line 69
+[09-Nov-2022 05:34:07 US/Eastern] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/ftnhealth/public_html/uploadUserReport.php on line 97
+[09-Nov-2022 05:35:38 US/Eastern] PHP Warning:  Illegal string offset 'firstName' in /home/ftnhealth/public_html/uploadUserReport.php on line 28
+[09-Nov-2022 05:35:38 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 28
+[09-Nov-2022 05:35:38 US/Eastern] PHP Warning:  Illegal string offset 'lastName' in /home/ftnhealth/public_html/uploadUserReport.php on line 29
+[09-Nov-2022 05:35:38 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 29
+[09-Nov-2022 05:35:38 US/Eastern] PHP Warning:  Illegal string offset 'phone' in /home/ftnhealth/public_html/uploadUserReport.php on line 30
+[09-Nov-2022 05:35:38 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 30
+[09-Nov-2022 05:35:38 US/Eastern] PHP Warning:  Illegal string offset 'email' in /home/ftnhealth/public_html/uploadUserReport.php on line 31
+[09-Nov-2022 05:35:38 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 31
+[09-Nov-2022 05:35:38 US/Eastern] PHP Warning:  Illegal string offset 'dob' in /home/ftnhealth/public_html/uploadUserReport.php on line 32
+[09-Nov-2022 05:35:38 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 32
+[09-Nov-2022 05:35:38 US/Eastern] PHP Warning:  Illegal string offset 'gender' in /home/ftnhealth/public_html/uploadUserReport.php on line 33
+[09-Nov-2022 05:35:38 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 33
+[09-Nov-2022 05:35:38 US/Eastern] PHP Warning:  Illegal string offset 'passport_no' in /home/ftnhealth/public_html/uploadUserReport.php on line 34
+[09-Nov-2022 05:35:38 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 34
+[09-Nov-2022 05:35:38 US/Eastern] PHP Warning:  Illegal string offset 'updated_at' in /home/ftnhealth/public_html/uploadUserReport.php on line 35
+[09-Nov-2022 05:35:38 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 35
+[09-Nov-2022 05:35:39 US/Eastern] PHP Warning:  require_once(../postmark.php): failed to open stream: No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 136
+[09-Nov-2022 05:35:39 US/Eastern] PHP Fatal error:  require_once(): Failed opening required '../postmark.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/ftnhealth/public_html/uploadUserReport.php on line 136
+[09-Nov-2022 10:44:03 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 10:44:03 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 05:44:03 US/Eastern] PHP Warning:  Illegal string offset 'firstName' in /home/ftnhealth/public_html/uploadUserReport.php on line 28
+[09-Nov-2022 05:44:03 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 28
+[09-Nov-2022 05:44:03 US/Eastern] PHP Warning:  Illegal string offset 'lastName' in /home/ftnhealth/public_html/uploadUserReport.php on line 29
+[09-Nov-2022 05:44:03 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 29
+[09-Nov-2022 05:44:03 US/Eastern] PHP Warning:  Illegal string offset 'phone' in /home/ftnhealth/public_html/uploadUserReport.php on line 30
+[09-Nov-2022 05:44:03 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 30
+[09-Nov-2022 05:44:03 US/Eastern] PHP Warning:  Illegal string offset 'email' in /home/ftnhealth/public_html/uploadUserReport.php on line 31
+[09-Nov-2022 05:44:03 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 31
+[09-Nov-2022 05:44:03 US/Eastern] PHP Warning:  Illegal string offset 'dob' in /home/ftnhealth/public_html/uploadUserReport.php on line 32
+[09-Nov-2022 05:44:03 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 32
+[09-Nov-2022 05:44:03 US/Eastern] PHP Warning:  Illegal string offset 'gender' in /home/ftnhealth/public_html/uploadUserReport.php on line 33
+[09-Nov-2022 05:44:03 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 33
+[09-Nov-2022 05:44:03 US/Eastern] PHP Warning:  Illegal string offset 'passport_no' in /home/ftnhealth/public_html/uploadUserReport.php on line 34
+[09-Nov-2022 05:44:03 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 34
+[09-Nov-2022 05:44:03 US/Eastern] PHP Warning:  Illegal string offset 'updated_at' in /home/ftnhealth/public_html/uploadUserReport.php on line 35
+[09-Nov-2022 05:44:03 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 35
+[09-Nov-2022 05:44:03 US/Eastern] PHP Warning:  Invalid argument supplied for foreach() in /home/ftnhealth/public_html/uploadUserReport.php on line 69
+[09-Nov-2022 05:44:03 US/Eastern] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/ftnhealth/public_html/uploadUserReport.php on line 97
+[09-Nov-2022 10:46:46 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 10:46:46 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 05:46:46 US/Eastern] PHP Warning:  Illegal string offset 'firstName' in /home/ftnhealth/public_html/uploadUserReport.php on line 28
+[09-Nov-2022 05:46:46 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 28
+[09-Nov-2022 05:46:46 US/Eastern] PHP Warning:  Illegal string offset 'lastName' in /home/ftnhealth/public_html/uploadUserReport.php on line 29
+[09-Nov-2022 05:46:46 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 29
+[09-Nov-2022 05:46:46 US/Eastern] PHP Warning:  Illegal string offset 'phone' in /home/ftnhealth/public_html/uploadUserReport.php on line 30
+[09-Nov-2022 05:46:46 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 30
+[09-Nov-2022 05:46:46 US/Eastern] PHP Warning:  Illegal string offset 'email' in /home/ftnhealth/public_html/uploadUserReport.php on line 31
+[09-Nov-2022 05:46:46 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 31
+[09-Nov-2022 05:46:46 US/Eastern] PHP Warning:  Illegal string offset 'dob' in /home/ftnhealth/public_html/uploadUserReport.php on line 32
+[09-Nov-2022 05:46:46 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 32
+[09-Nov-2022 05:46:46 US/Eastern] PHP Warning:  Illegal string offset 'gender' in /home/ftnhealth/public_html/uploadUserReport.php on line 33
+[09-Nov-2022 05:46:46 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 33
+[09-Nov-2022 05:46:46 US/Eastern] PHP Warning:  Illegal string offset 'passport_no' in /home/ftnhealth/public_html/uploadUserReport.php on line 34
+[09-Nov-2022 05:46:46 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 34
+[09-Nov-2022 05:46:46 US/Eastern] PHP Warning:  Illegal string offset 'updated_at' in /home/ftnhealth/public_html/uploadUserReport.php on line 35
+[09-Nov-2022 05:46:46 US/Eastern] PHP Notice:  Uninitialized string offset: 0 in /home/ftnhealth/public_html/uploadUserReport.php on line 35
+[09-Nov-2022 10:58:03 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 10:58:03 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 10:59:27 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 10:59:27 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 05:59:27 US/Eastern] PHP Warning:  Invalid argument supplied for foreach() in /home/ftnhealth/public_html/uploadUserReport.php on line 68
+[09-Nov-2022 05:59:27 US/Eastern] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/ftnhealth/public_html/uploadUserReport.php on line 96
+[09-Nov-2022 06:29:26 US/Eastern] PHP Warning:  require_once(../postmark.php): failed to open stream: No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 135
+[09-Nov-2022 06:29:26 US/Eastern] PHP Fatal error:  require_once(): Failed opening required '../postmark.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/ftnhealth/public_html/uploadUserReport.php on line 135
+[09-Nov-2022 06:30:28 US/Eastern] PHP Fatal error:  Uncaught RuntimeException: Unable to open "uploads/innostudio.de_HRMGTCORPDBAFASTTESTNOW_110522_16677072070.csv" using mode "r": fopen(uploads/innostudio.de_HRMGTCORPDBAFASTTESTNOW_110522_16677072070.csv): failed to open stream: No such file or directory in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php:372
+Stack trace:
+#0 [internal function]: GuzzleHttp\Psr7\Utils::GuzzleHttp\Psr7\{closure}(2, 'fopen(uploads/i...', '/home/ftnhealth...', 383, Array)
+#1 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php(383): fopen('uploads/innostu...', 'r')
+#2 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/LazyOpenStream.php(40): GuzzleHttp\Psr7\Utils::tryFopen('uploads/innostu...', 'r')
+#3 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(33): GuzzleHttp\Psr7\LazyOpenStream->createStream()
+#4 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(83): GuzzleHttp\Psr7\LazyOpenStream->__get('stream')
+#5 /home/ftnhealth/public_html/ve in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php on line 372
+[09-Nov-2022 11:31:02 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 11:31:02 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 06:31:02 US/Eastern] PHP Warning:  Invalid argument supplied for foreach() in /home/ftnhealth/public_html/uploadUserReport.php on line 68
+[09-Nov-2022 06:31:02 US/Eastern] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/ftnhealth/public_html/uploadUserReport.php on line 96
+[09-Nov-2022 16:01:43 UTC] PHP Warning:  file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/ftnhealth/public_html/downloadPDF.php on line 1144
+[09-Nov-2022 16:01:43 UTC] PHP Warning:  file_get_contents(https://fasttestnowreports.s3.amazonaws.com/REPORTS/c742a402367f2030636af25ce0c9713eaccula91481.pdf): failed to open stream: no suitable wrapper could be found in /home/ftnhealth/public_html/downloadPDF.php on line 1144
+[09-Nov-2022 16:01:49 UTC] PHP Warning:  file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/ftnhealth/public_html/downloadPDF.php on line 1144
+[09-Nov-2022 16:01:49 UTC] PHP Warning:  file_get_contents(https://fasttestnowreports.s3.amazonaws.com/REPORTS/c742a402367f2030636af25ce0c9713eaccula91480.pdf): failed to open stream: no suitable wrapper could be found in /home/ftnhealth/public_html/downloadPDF.php on line 1144
+[09-Nov-2022 16:02:59 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 16:02:59 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 11:02:59 US/Eastern] PHP Warning:  Invalid argument supplied for foreach() in /home/ftnhealth/public_html/uploadUserReport.php on line 68
+[09-Nov-2022 11:02:59 US/Eastern] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/ftnhealth/public_html/uploadUserReport.php on line 96
+[09-Nov-2022 16:08:24 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 16:08:24 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 11:08:24 US/Eastern] PHP Warning:  Invalid argument supplied for foreach() in /home/ftnhealth/public_html/uploadUserReport.php on line 68
+[09-Nov-2022 11:08:24 US/Eastern] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/ftnhealth/public_html/uploadUserReport.php on line 96
+[09-Nov-2022 16:10:42 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 16:10:42 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 11:10:42 US/Eastern] PHP Warning:  Invalid argument supplied for foreach() in /home/ftnhealth/public_html/uploadUserReport.php on line 68
+[09-Nov-2022 16:12:30 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 16:12:30 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 16:14:33 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 16:14:33 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 16:16:15 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 16:16:15 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 16:18:55 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 16:18:55 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 16:23:37 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 16:23:37 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 16:29:00 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 18
+[09-Nov-2022 16:29:00 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 11:32:58 US/Eastern] PHP Fatal error:  Uncaught Error: Using $this when not in object context in /home/ftnhealth/public_html/uploadUserReport.php:139
+Stack trace:
+#0 {main}
+  thrown in /home/ftnhealth/public_html/uploadUserReport.php on line 139
+[09-Nov-2022 11:42:39 US/Eastern] PHP Fatal error:  Uncaught Error: Using $this when not in object context in /home/ftnhealth/public_html/uploadUserReport.php:139
+Stack trace:
+#0 {main}
+  thrown in /home/ftnhealth/public_html/uploadUserReport.php on line 139
+[09-Nov-2022 11:51:15 US/Eastern] PHP Warning:  file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/ftnhealth/public_html/uploadUserReport.php on line 345
+[09-Nov-2022 11:51:15 US/Eastern] PHP Warning:  file_get_contents(https://fasttestnowreports.s3.amazonaws.com/REPORTS/2651eantibody126736_2022-11-09%2011%3A51%3A15_0.pdf): failed to open stream: no suitable wrapper could be found in /home/ftnhealth/public_html/uploadUserReport.php on line 345
+[09-Nov-2022 11:51:15 US/Eastern] PHP Warning:  unlink(uploads/innostudio.de_c742a402367f2030636af25ce0c9713eaccula91481.pdf): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 348
+[09-Nov-2022 11:51:15 US/Eastern] PHP Fatal error:  Cannot declare class Postmark, because the name is already in use in /home/ftnhealth/public_html/postmark.php on line 8
+[09-Nov-2022 12:02:11 US/Eastern] PHP Fatal error:  Cannot declare class Postmark, because the name is already in use in /home/ftnhealth/public_html/postmark.php on line 8
+[09-Nov-2022 12:56:36 US/Eastern] PHP Warning:  file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/ftnhealth/public_html/uploadUserReport.php on line 350
+[09-Nov-2022 12:56:36 US/Eastern] PHP Warning:  file_get_contents(https://fasttestnowreports.s3.amazonaws.com/REPORTS/63462f82e9pcr126736_2022-11-09%2012%3A56%3A35_0.pdf): failed to open stream: no suitable wrapper could be found in /home/ftnhealth/public_html/uploadUserReport.php on line 350
+[09-Nov-2022 18:01:02 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 18:01:02 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 20
+[09-Nov-2022 13:01:02 US/Eastern] PHP Warning:  Invalid argument supplied for foreach() in /home/ftnhealth/public_html/uploadUserReport.php on line 70
+[09-Nov-2022 13:01:02 US/Eastern] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/ftnhealth/public_html/uploadUserReport.php on line 99
+[09-Nov-2022 18:04:51 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 18:04:51 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 20
+[09-Nov-2022 13:04:51 US/Eastern] PHP Warning:  Invalid argument supplied for foreach() in /home/ftnhealth/public_html/uploadUserReport.php on line 70
+[09-Nov-2022 13:04:51 US/Eastern] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/ftnhealth/public_html/uploadUserReport.php on line 99
+[09-Nov-2022 13:06:18 US/Eastern] PHP Warning:  file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/ftnhealth/public_html/uploadUserReport.php on line 350
+[09-Nov-2022 13:06:18 US/Eastern] PHP Warning:  file_get_contents(https://fasttestnowreports.s3.amazonaws.com/REPORTS/63462f82e9pcr126736_2022-11-09%2001%3A06%3A18_0.pdf): failed to open stream: no suitable wrapper could be found in /home/ftnhealth/public_html/uploadUserReport.php on line 350
+[09-Nov-2022 13:09:30 US/Eastern] PHP Fatal error:  Cannot declare class Postmark, because the name is already in use in /home/ftnhealth/public_html/postmark.php on line 8
+[09-Nov-2022 19:08:04 UTC] PHP Notice:  Undefined index: mySource in /home/ftnhealth/public_html/uploadUserReport.php on line 19
+[09-Nov-2022 19:08:04 UTC] PHP Notice:  Undefined index: extensions in /home/ftnhealth/public_html/uploadUserReport.php on line 20
+[09-Nov-2022 14:08:04 US/Eastern] PHP Warning:  Invalid argument supplied for foreach() in /home/ftnhealth/public_html/uploadUserReport.php on line 70
+[09-Nov-2022 14:08:04 US/Eastern] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/ftnhealth/public_html/uploadUserReport.php on line 99
+[09-Nov-2022 14:09:23 US/Eastern] PHP Fatal error:  Cannot declare class Postmark, because the name is already in use in /home/ftnhealth/public_html/postmark.php on line 8
+[09-Nov-2022 14:12:05 US/Eastern] PHP Notice:  Undefined variable: j in /home/ftnhealth/public_html/uploadUserReport.php on line 361
+[09-Nov-2022 14:12:05 US/Eastern] PHP Fatal error:  Cannot declare class Postmark, because the name is already in use in /home/ftnhealth/public_html/postmark.php on line 8
+[09-Nov-2022 14:13:49 US/Eastern] PHP Fatal error:  Cannot declare class Postmark, because the name is already in use in /home/ftnhealth/public_html/postmark.php on line 8
+[09-Nov-2022 19:17:54 UTC] PHP Warning:  file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/ftnhealth/public_html/downloadPDF.php on line 1144
+[09-Nov-2022 19:17:54 UTC] PHP Warning:  file_get_contents(https://fasttestnowreports.s3.amazonaws.com/REPORTS/66c0300281470a91a1062263462f82e9pcr91482.pdf): failed to open stream: no suitable wrapper could be found in /home/ftnhealth/public_html/downloadPDF.php on line 1144
+[09-Nov-2022 14:20:18 US/Eastern] PHP Fatal error:  Cannot declare class Postmark, because the name is already in use in /home/ftnhealth/public_html/postmark.php on line 8
+[09-Nov-2022 14:27:34 US/Eastern] PHP Fatal error:  Cannot declare class Postmark, because the name is already in use in /home/ftnhealth/public_html/postmark.php on line 8
+[09-Nov-2022 14:30:06 US/Eastern] PHP Fatal error:  Cannot declare class Postmark, because the name is already in use in /home/ftnhealth/public_html/postmark.php on line 8
+[09-Nov-2022 14:42:07 US/Eastern] PHP Fatal error:  Cannot declare class Postmark, because the name is already in use in /home/ftnhealth/public_html/postmark.php on line 8
+[09-Nov-2022 14:45:23 US/Eastern] PHP Fatal error:  Cannot declare class Postmark, because the name is already in use in /home/ftnhealth/public_html/postmark.php on line 8
+[09-Nov-2022 14:57:53 US/Eastern] PHP Fatal error:  Uncaught RuntimeException: Unable to open "uploads/innostudio.de_results.pdf" using mode "r": fopen(uploads/innostudio.de_results.pdf): failed to open stream: No such file or directory in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php:372
+Stack trace:
+#0 [internal function]: GuzzleHttp\Psr7\Utils::GuzzleHttp\Psr7\{closure}(2, 'fopen(uploads/i...', '/home/ftnhealth...', 383, Array)
+#1 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php(383): fopen('uploads/innostu...', 'r')
+#2 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/LazyOpenStream.php(40): GuzzleHttp\Psr7\Utils::tryFopen('uploads/innostu...', 'r')
+#3 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(33): GuzzleHttp\Psr7\LazyOpenStream->createStream()
+#4 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(83): GuzzleHttp\Psr7\LazyOpenStream->__get('stream')
+#5 /home/ftnhealth/public_html/vendor/aws/aws-sdk-php/src/Middleware.php(230): GuzzleHttp\Psr7\LazyOpen in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php on line 372
+[09-Nov-2022 15:01:28 US/Eastern] PHP Fatal error:  Uncaught RuntimeException: Unable to open "uploads/innostudio.de_results.pdf" using mode "r": fopen(uploads/innostudio.de_results.pdf): failed to open stream: No such file or directory in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php:372
+Stack trace:
+#0 [internal function]: GuzzleHttp\Psr7\Utils::GuzzleHttp\Psr7\{closure}(2, 'fopen(uploads/i...', '/home/ftnhealth...', 383, Array)
+#1 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php(383): fopen('uploads/innostu...', 'r')
+#2 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/LazyOpenStream.php(40): GuzzleHttp\Psr7\Utils::tryFopen('uploads/innostu...', 'r')
+#3 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(33): GuzzleHttp\Psr7\LazyOpenStream->createStream()
+#4 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(83): GuzzleHttp\Psr7\LazyOpenStream->__get('stream')
+#5 /home/ftnhealth/public_html/vendor/aws/aws-sdk-php/src/Middleware.php(230): GuzzleHttp\Psr7\LazyOpen in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php on line 372
+[09-Nov-2022 15:03:16 US/Eastern] PHP Fatal error:  Uncaught RuntimeException: Unable to open "uploads/innostudio.de_results.pdf" using mode "r": fopen(uploads/innostudio.de_results.pdf): failed to open stream: No such file or directory in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php:372
+Stack trace:
+#0 [internal function]: GuzzleHttp\Psr7\Utils::GuzzleHttp\Psr7\{closure}(2, 'fopen(uploads/i...', '/home/ftnhealth...', 383, Array)
+#1 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php(383): fopen('uploads/innostu...', 'r')
+#2 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/LazyOpenStream.php(40): GuzzleHttp\Psr7\Utils::tryFopen('uploads/innostu...', 'r')
+#3 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(33): GuzzleHttp\Psr7\LazyOpenStream->createStream()
+#4 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(83): GuzzleHttp\Psr7\LazyOpenStream->__get('stream')
+#5 /home/ftnhealth/public_html/vendor/aws/aws-sdk-php/src/Middleware.php(230): GuzzleHttp\Psr7\LazyOpen in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php on line 372
+[09-Nov-2022 15:04:59 US/Eastern] PHP Fatal error:  Uncaught RuntimeException: Unable to open "uploads/innostudio.de_results.pdf" using mode "r": fopen(uploads/innostudio.de_results.pdf): failed to open stream: No such file or directory in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php:372
+Stack trace:
+#0 [internal function]: GuzzleHttp\Psr7\Utils::GuzzleHttp\Psr7\{closure}(2, 'fopen(uploads/i...', '/home/ftnhealth...', 383, Array)
+#1 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php(383): fopen('uploads/innostu...', 'r')
+#2 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/LazyOpenStream.php(40): GuzzleHttp\Psr7\Utils::tryFopen('uploads/innostu...', 'r')
+#3 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(33): GuzzleHttp\Psr7\LazyOpenStream->createStream()
+#4 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(83): GuzzleHttp\Psr7\LazyOpenStream->__get('stream')
+#5 /home/ftnhealth/public_html/vendor/aws/aws-sdk-php/src/Middleware.php(230): GuzzleHttp\Psr7\LazyOpen in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php on line 372
+[09-Nov-2022 15:07:23 US/Eastern] PHP Fatal error:  Uncaught RuntimeException: Unable to open "uploads/innostudio.de_results.pdf" using mode "r": fopen(uploads/innostudio.de_results.pdf): failed to open stream: No such file or directory in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php:372
+Stack trace:
+#0 [internal function]: GuzzleHttp\Psr7\Utils::GuzzleHttp\Psr7\{closure}(2, 'fopen(uploads/i...', '/home/ftnhealth...', 383, Array)
+#1 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php(383): fopen('uploads/innostu...', 'r')
+#2 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/LazyOpenStream.php(40): GuzzleHttp\Psr7\Utils::tryFopen('uploads/innostu...', 'r')
+#3 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(33): GuzzleHttp\Psr7\LazyOpenStream->createStream()
+#4 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(83): GuzzleHttp\Psr7\LazyOpenStream->__get('stream')
+#5 /home/ftnhealth/public_html/vendor/aws/aws-sdk-php/src/Middleware.php(230): GuzzleHttp\Psr7\LazyOpen in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php on line 372
+[09-Nov-2022 15:09:44 US/Eastern] PHP Fatal error:  Uncaught RuntimeException: Unable to open "uploads/innostudio.de_results.pdf" using mode "r": fopen(uploads/innostudio.de_results.pdf): failed to open stream: No such file or directory in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php:372
+Stack trace:
+#0 [internal function]: GuzzleHttp\Psr7\Utils::GuzzleHttp\Psr7\{closure}(2, 'fopen(uploads/i...', '/home/ftnhealth...', 383, Array)
+#1 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php(383): fopen('uploads/innostu...', 'r')
+#2 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/LazyOpenStream.php(40): GuzzleHttp\Psr7\Utils::tryFopen('uploads/innostu...', 'r')
+#3 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(33): GuzzleHttp\Psr7\LazyOpenStream->createStream()
+#4 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(83): GuzzleHttp\Psr7\LazyOpenStream->__get('stream')
+#5 /home/ftnhealth/public_html/vendor/aws/aws-sdk-php/src/Middleware.php(230): GuzzleHttp\Psr7\LazyOpen in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php on line 372
+[09-Nov-2022 15:14:35 US/Eastern] PHP Fatal error:  Uncaught RuntimeException: Unable to open "uploads/innostudio.de_results.pdf" using mode "r": fopen(uploads/innostudio.de_results.pdf): failed to open stream: No such file or directory in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php:372
+Stack trace:
+#0 [internal function]: GuzzleHttp\Psr7\Utils::GuzzleHttp\Psr7\{closure}(2, 'fopen(uploads/i...', '/home/ftnhealth...', 383, Array)
+#1 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php(383): fopen('uploads/innostu...', 'r')
+#2 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/LazyOpenStream.php(40): GuzzleHttp\Psr7\Utils::tryFopen('uploads/innostu...', 'r')
+#3 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(33): GuzzleHttp\Psr7\LazyOpenStream->createStream()
+#4 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(83): GuzzleHttp\Psr7\LazyOpenStream->__get('stream')
+#5 /home/ftnhealth/public_html/vendor/aws/aws-sdk-php/src/Middleware.php(230): GuzzleHttp\Psr7\LazyOpen in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php on line 372
+[09-Nov-2022 15:16:14 US/Eastern] PHP Fatal error:  Uncaught RuntimeException: Unable to open "uploads/innostudio.de_wqw.pdf" using mode "r": fopen(uploads/innostudio.de_wqw.pdf): failed to open stream: No such file or directory in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php:372
+Stack trace:
+#0 [internal function]: GuzzleHttp\Psr7\Utils::GuzzleHttp\Psr7\{closure}(2, 'fopen(uploads/i...', '/home/ftnhealth...', 383, Array)
+#1 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php(383): fopen('uploads/innostu...', 'r')
+#2 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/LazyOpenStream.php(40): GuzzleHttp\Psr7\Utils::tryFopen('uploads/innostu...', 'r')
+#3 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(33): GuzzleHttp\Psr7\LazyOpenStream->createStream()
+#4 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(83): GuzzleHttp\Psr7\LazyOpenStream->__get('stream')
+#5 /home/ftnhealth/public_html/vendor/aws/aws-sdk-php/src/Middleware.php(230): GuzzleHttp\Psr7\LazyOpenStream-> in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php on line 372
+[09-Nov-2022 15:18:43 US/Eastern] PHP Fatal error:  Uncaught RuntimeException: Unable to open "uploads/innostudio.de_wqw.pdf" using mode "r": fopen(uploads/innostudio.de_wqw.pdf): failed to open stream: No such file or directory in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php:372
+Stack trace:
+#0 [internal function]: GuzzleHttp\Psr7\Utils::GuzzleHttp\Psr7\{closure}(2, 'fopen(uploads/i...', '/home/ftnhealth...', 383, Array)
+#1 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php(383): fopen('uploads/innostu...', 'r')
+#2 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/LazyOpenStream.php(40): GuzzleHttp\Psr7\Utils::tryFopen('uploads/innostu...', 'r')
+#3 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(33): GuzzleHttp\Psr7\LazyOpenStream->createStream()
+#4 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(83): GuzzleHttp\Psr7\LazyOpenStream->__get('stream')
+#5 /home/ftnhealth/public_html/vendor/aws/aws-sdk-php/src/Middleware.php(230): GuzzleHttp\Psr7\LazyOpenStream-> in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php on line 372
+[09-Nov-2022 15:25:59 US/Eastern] PHP Fatal error:  Uncaught RuntimeException: Unable to open "uploads/innostudio.de_results.pdf" using mode "r": fopen(uploads/innostudio.de_results.pdf): failed to open stream: No such file or directory in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php:372
+Stack trace:
+#0 [internal function]: GuzzleHttp\Psr7\Utils::GuzzleHttp\Psr7\{closure}(2, 'fopen(uploads/i...', '/home/ftnhealth...', 383, Array)
+#1 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php(383): fopen('uploads/innostu...', 'r')
+#2 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/LazyOpenStream.php(40): GuzzleHttp\Psr7\Utils::tryFopen('uploads/innostu...', 'r')
+#3 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(33): GuzzleHttp\Psr7\LazyOpenStream->createStream()
+#4 /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php(83): GuzzleHttp\Psr7\LazyOpenStream->__get('stream')
+#5 /home/ftnhealth/public_html/vendor/aws/aws-sdk-php/src/Middleware.php(230): GuzzleHttp\Psr7\LazyOpen in /home/ftnhealth/public_html/vendor/guzzlehttp/psr7/src/Utils.php on line 372
+[09-Nov-2022 15:32:45 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 371
+[09-Nov-2022 15:32:45 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 371
+[09-Nov-2022 15:32:45 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 371
+[09-Nov-2022 15:32:45 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 371
+[09-Nov-2022 15:35:17 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 370
+[09-Nov-2022 15:35:17 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 370
+[09-Nov-2022 15:35:17 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 370
+[09-Nov-2022 15:35:17 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 370
+[09-Nov-2022 15:36:30 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 370
+[09-Nov-2022 15:36:30 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 370
+[09-Nov-2022 15:36:30 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 370
+[09-Nov-2022 15:36:30 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 370
+[09-Nov-2022 15:38:49 US/Eastern] PHP Notice:  Undefined variable: message in /home/ftnhealth/public_html/uploadUserReport.php on line 134
+[09-Nov-2022 15:38:49 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 370
+[09-Nov-2022 15:38:49 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 370
+[09-Nov-2022 15:38:49 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 370
+[09-Nov-2022 15:38:49 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 370
+[09-Nov-2022 15:38:49 US/Eastern] PHP Notice:  Undefined variable: message in /home/ftnhealth/public_html/uploadUserReport.php on line 134
+[09-Nov-2022 15:38:49 US/Eastern] PHP Fatal error:  Cannot declare class Postmark, because the name is already in use in /home/ftnhealth/public_html/postmark.php on line 8
+[09-Nov-2022 15:40:58 US/Eastern] PHP Notice:  Undefined variable: message in /home/ftnhealth/public_html/uploadUserReport.php on line 133
+[09-Nov-2022 15:40:58 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:40:58 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:40:58 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:40:58 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:40:58 US/Eastern] PHP Fatal error:  Cannot declare class Postmark, because the name is already in use in /home/ftnhealth/public_html/postmark.php on line 8
+[09-Nov-2022 15:41:57 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:41:57 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:41:57 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:41:57 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:43:00 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:43:00 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:43:00 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:43:00 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:44:07 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:44:07 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:44:07 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:44:07 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:45:20 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:45:20 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:45:20 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:45:20 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:47:12 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:47:12 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:47:12 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:47:12 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:48:15 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:48:15 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:48:15 US/Eastern] PHP Notice:  Undefined variable: outputs in /home/ftnhealth/public_html/uploadUserReport.php on line 368
+[09-Nov-2022 15:48:15 US/Eastern] PHP Warning:  unlink(): No such file or directory in /home/ftnhealth/public_html/uploadUserReport.php on line 368

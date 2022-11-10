@@ -210,7 +210,6 @@ class AwsClient implements AwsClientInterface
         $this->addEndpointDiscoveryMiddleware($config, $args);
         $this->loadAliases();
         $this->addStreamRequestPayload();
-        $this->addRecursionDetection();
 
         if (isset($args['with_resolved'])) {
             $args['with_resolved']($config);
@@ -364,11 +363,6 @@ class AwsClient implements AwsClientInterface
                     $version = 'v4-unsigned-body';
                     break;
             }
-            if (isset($c['@context']['signature_version'])) {
-                if ($c['@context']['signature_version'] == 'v4a') {
-                    $version = 'v4a';
-                }
-            }
             return SignatureProvider::resolve($provider, $version, $name, $region);
         };
         $this->handlerList->appendSign(
@@ -407,15 +401,6 @@ class AwsClient implements AwsClientInterface
         $this->handlerList->prependSign(
             $streamRequestPayloadMiddleware,
             'StreamRequestPayloadMiddleware'
-        );
-    }
-
-    private function addRecursionDetection()
-    {
-        // Add recursion detection header to requests
-        // originating in supported Lambda runtimes
-        $this->handlerList->appendBuild(
-            Middleware::recursionDetection(), 'recursion-detection'
         );
     }
 

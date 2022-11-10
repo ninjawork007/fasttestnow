@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ebd684c3-1410-4dcf-a350-3968311f3744" name="Changes" comment="Bug Fixing in Download generating &amp; Download QR Code with PDF">
+      <change beforePath="$PROJECT_DIR$/SSP.php" beforeDir="false" afterPath="$PROJECT_DIR$/SSP.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report_history.php" beforeDir="false" afterPath="$PROJECT_DIR$/report_history.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverside.php" beforeDir="false" afterPath="$PROJECT_DIR$/serverside.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable path="composer" />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/mpdf/mpdf" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/setasign/fpdi" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/mpdf/qrcode" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/tracy/tracy" />
+      <path value="$PROJECT_DIR$/vendor/aws/aws-sdk-php" />
+      <path value="$PROJECT_DIR$/vendor/aws/aws-crt-php" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/mtdowling/jmespath.php" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1wXegYISTgsjPD5z5Zo8oV3KbCK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ebd684c3-1410-4dcf-a350-3968311f3744" name="Changes" comment="" />
+      <created>1628609472230</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1628609472230</updated>
+      <workItem from="1628609474076" duration="26000" />
+      <workItem from="1628610882342" duration="3217000" />
+      <workItem from="1628616831092" duration="130000" />
+      <workItem from="1628756641657" duration="851000" />
+      <workItem from="1631194427922" duration="1111000" />
+      <workItem from="1631246310931" duration="187000" />
+      <workItem from="1631247292039" duration="488000" />
+      <workItem from="1631256435851" duration="1150000" />
+      <workItem from="1631258318840" duration="1003000" />
+      <workItem from="1631266414331" duration="1605000" />
+      <workItem from="1631289836420" duration="770000" />
+      <workItem from="1631617312010" duration="1757000" />
+      <workItem from="1631619166764" duration="1353000" />
+      <workItem from="1631620979565" duration="1506000" />
+      <workItem from="1631622882532" duration="884000" />
+      <workItem from="1631693580859" duration="8000" />
+      <workItem from="1631693599042" duration="981000" />
+      <workItem from="1631695506427" duration="393000" />
+    </task>
+    <task id="LOCAL-00001" summary="Update">
+      <created>1628616946274</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1628616946275</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update">
+      <created>1628757191472</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1628757191472</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update">
+      <created>1631195623645</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1631195623645</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Bug Fixing in Download generating &amp; Download QR Code with PDF">
+      <created>1631258970338</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1631258970339</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Update" />
+    <MESSAGE value="Bug Fixing in Download generating &amp; Download QR Code with PDF" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug Fixing in Download generating &amp; Download QR Code with PDF" />
+  </component>
+</project>

@@ -1,7 +1,6 @@
 <?php
 namespace Aws\S3;
 
-use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Promise\PromisorInterface;
 use GuzzleHttp\Psr7;
 use Psr\Http\Message\StreamInterface;
@@ -61,9 +60,6 @@ class ObjectUploader implements PromisorInterface
         $this->options = $options + self::$defaults;
     }
 
-    /**
-     * @return PromiseInterface
-     */
     public function promise()
     {
         /** @var int $mup_threshold */

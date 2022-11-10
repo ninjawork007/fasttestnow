@@ -35,7 +35,6 @@ final class OutputDebugger
 				$this->list[] = [$file, 1, self::BOM];
 			}
 		}
-
 		ob_start([$this, 'handler'], 1);
 	}
 
@@ -54,7 +53,6 @@ final class OutputDebugger
 				$this->list[] = [$trace[0]['file'], $trace[0]['line'], $s, $stack];
 			}
 		}
-
 		return $phase === PHP_OUTPUT_HANDLER_FINAL
 			? $this->renderHtml()
 			: null;
@@ -77,7 +75,6 @@ final class OutputDebugger
 				. str_replace(self::BOM, '<big>BOM</big>', Dumper::toHtml($item[2]))
 				. "</span><br>\n";
 		}
-
 		return $res . '</code>';
 	}
 }

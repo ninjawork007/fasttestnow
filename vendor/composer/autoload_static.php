@@ -4,28 +4,24 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
+class ComposerStaticInit5102815fd47c2ae3a78ab191f4101a1d
 {
     public static $files = array (
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        'd507e002f7fce7f0c6dbf1f22edcb902' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/functions.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '8a9dc1de0ca7e01f3e08231539562f61' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/functions.php',
-        'd507e002f7fce7f0c6dbf1f22edcb902' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
             'setasign\\Fpdi\\' => 14,
-        ),
-        'T' => 
-        array (
-            'Test\\' => 5,
         ),
         'S' => 
         array (
@@ -46,14 +42,6 @@ class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
         array (
             'JmesPath\\' => 9,
         ),
-        'I' => 
-        array (
-            'Interfax\\' => 9,
-        ),
-        'H' => 
-        array (
-            'Http\\Message\\' => 13,
-        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -63,10 +51,6 @@ class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
         'D' => 
         array (
             'DeepCopy\\' => 9,
-        ),
-        'C' => 
-        array (
-            'Classes\\' => 8,
         ),
         'A' => 
         array (
@@ -79,22 +63,17 @@ class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
         array (
             0 => __DIR__ . '/..' . '/setasign/fpdi/src',
         ),
-        'Test\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/interfax/interfax/tests',
-        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
         'Psr\\Log\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/log/src',
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -112,14 +91,6 @@ class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
         array (
             0 => __DIR__ . '/..' . '/mtdowling/jmespath.php/src',
         ),
-        'Interfax\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/interfax/interfax/src/Interfax',
-        ),
-        'Http\\Message\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/php-http/message-factory/src',
-        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -136,23 +107,9 @@ class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
-        'Classes\\' => 
-        array (
-            0 => 'C:\\xampp\\htdocs\\fasttestnow\\vendor',
-        ),
         'Aws\\' => 
         array (
             0 => __DIR__ . '/..' . '/aws/aws-sdk-php/src',
-        ),
-    );
-
-    public static $prefixesPsr0 = array (
-        'P' => 
-        array (
-            'Postmark\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/wildbit/postmark-php/src',
-            ),
         ),
     );
 
@@ -180,8 +137,6 @@ class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
         'AWS\\CRT\\NativeResource' => __DIR__ . '/..' . '/aws/aws-crt-php/src/AWS/CRT/NativeResource.php',
         'AWS\\CRT\\OptionValue' => __DIR__ . '/..' . '/aws/aws-crt-php/src/AWS/CRT/Options.php',
         'AWS\\CRT\\Options' => __DIR__ . '/..' . '/aws/aws-crt-php/src/AWS/CRT/Options.php',
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Shuchkin\\SimpleXLSXGen' => __DIR__ . '/..' . '/shuchkin/simplexlsxgen/src/SimpleXLSXGen.php',
         'Tracy\\Bar' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Bar/Bar.php',
         'Tracy\\BlueScreen' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/BlueScreen/BlueScreen.php',
         'Tracy\\Bridges\\Nette\\Bridge' => __DIR__ . '/..' . '/tracy/tracy/src/Bridges/Nette/Bridge.php',
@@ -191,32 +146,25 @@ class ComposerStaticInit8f412f8a15999390d0bbc3db00160456
         'Tracy\\Bridges\\Psr\\TracyToPsrLoggerAdapter' => __DIR__ . '/..' . '/tracy/tracy/src/Bridges/Psr/TracyToPsrLoggerAdapter.php',
         'Tracy\\Debugger' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Debugger/Debugger.php',
         'Tracy\\DefaultBarPanel' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Bar/DefaultBarPanel.php',
-        'Tracy\\DeferredContent' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Debugger/DeferredContent.php',
-        'Tracy\\DevelopmentStrategy' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Debugger/DevelopmentStrategy.php',
         'Tracy\\Dumper' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Dumper/Dumper.php',
         'Tracy\\Dumper\\Describer' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Dumper/Describer.php',
         'Tracy\\Dumper\\Exposer' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Dumper/Exposer.php',
         'Tracy\\Dumper\\Renderer' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Dumper/Renderer.php',
         'Tracy\\Dumper\\Value' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Dumper/Value.php',
-        'Tracy\\FileSession' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Session/FileSession.php',
         'Tracy\\FireLogger' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Logger/FireLogger.php',
         'Tracy\\Helpers' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Helpers.php',
         'Tracy\\IBarPanel' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Bar/IBarPanel.php',
         'Tracy\\ILogger' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Logger/ILogger.php',
         'Tracy\\Logger' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Logger/Logger.php',
-        'Tracy\\NativeSession' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Session/NativeSession.php',
         'Tracy\\OutputDebugger' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/OutputDebugger/OutputDebugger.php',
-        'Tracy\\ProductionStrategy' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Debugger/ProductionStrategy.php',
-        'Tracy\\SessionStorage' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Session/SessionStorage.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit8f412f8a15999390d0bbc3db00160456::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit8f412f8a15999390d0bbc3db00160456::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit8f412f8a15999390d0bbc3db00160456::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit8f412f8a15999390d0bbc3db00160456::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit5102815fd47c2ae3a78ab191f4101a1d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit5102815fd47c2ae3a78ab191f4101a1d::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit5102815fd47c2ae3a78ab191f4101a1d::$classMap;
 
         }, null, ClassLoader::class);
     }

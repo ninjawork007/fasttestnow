@@ -4,6 +4,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 session_start();
 
 use Mpdf\Mpdf;
+use Postmark\PostmarkClient;
 use Aws\S3\Exception\S3Exception;
 use Aws\S3\S3Client;
 
@@ -51,7 +52,7 @@ $token = mysqli_fetch_row($maxResult);
 $userToken = (int)$token[0];
 $newUserToken = str_pad($userToken + 1, 16, '0', STR_PAD_LEFT);
 
-// var_dump($userInfo);die;
+//  var_dump($outputs);die;   
 
 //Initial S3 Client
 $client = new S3Client([
@@ -66,6 +67,9 @@ $client = new S3Client([
 // Generate the AWS S3 links
 $awslinks = [];
 $i = 0;
+$flag = 0;
+$emailOK = false;
+
 foreach($outputs as $output) :
     $awslink = "";
 
@@ -73,32 +77,29 @@ foreach($outputs as $output) :
         case 1:
             $awslink = "63462f82e9pcr"  . $appointment_id . "_".$currenttime."_" . $i ."." . $extensions[$i];
         break;
-        case 1:
+        case 2:
             $awslink = "962f0aantigen"  . $appointment_id . "_".$currenttime."_" . $i ."." . $extensions[$i];
         break;
-        case 1:
+        case 3:
             $awslink = "0c9713eaccula"  . $appointment_id . "_".$currenttime."_" . $i ."." . $extensions[$i];
         break;
-        case 1:
+        case 4:
             $awslink = "2651eantibody"  . $appointment_id . "_".$currenttime."_" . $i ."." . $extensions[$i];
         break;
-        case 1:
+        case 5:
             $awslink = "67ecb2651eflu"  . $appointment_id . "_".$currenttime."_" . $i ."." . $extensions[$i];
         break;
         default:
         break;
     }
-    array_push($awslinks, $awslink);
-    $i ++;
-endforeach;
-
-$flag = false;
     
-for($j = 0; $j < count($outputs); $j ++) :
-    $sourceFile = $outputs[$j];
-    $s3Link = $awslinks[$j];
-    $testResult = $results[$j];
-    // Seeing if the file exists on S3
+    $sourceFile = $output;
+    $s3Link = $awslink;
+    $testResult = $results[$i];
+    $i ++;
+
+
+// Seeing if the file exists on S3
     $response = $client->doesObjectExist('fasttestnowreports', 'REPORTS/' . $s3Link);
 
     
@@ -128,220 +129,252 @@ for($j = 0; $j < count($outputs); $j ++) :
             // var_dump($sql);die;
             $q = mysqli_query($con, $sql);
             if($q) {
-                if(($j+1) == count($outputs))
-                    $flag = true;
+                
+                if($i == count($outputs)) {
+                    
+                    $flag = 1;
+                }
             }
-            unlink($sourceFile);
-            // Send OTP
-			require_once('../postmark.php');
-			// include "postmark.php";
-			$receiver = $this->email;
-			$subject = "Fast Test Now Upload Results";
-			$message = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-                        <html>
-                        
-                        <head>
-                            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-                            <title>Fast test now</title>
-                            <style type="text/css">
-                                html {
-                                    -webkit-text-size-adjust: none;
-                                    -ms-text-size-adjust: none;
-                                }
-                        
-                                @media only screen and (max-device-width: 680px),
-                                only screen and (max-width: 680px) {
-                                    *[class="table_width_100"] {
-                                        width: 96% !important;
-                                    }
-                        
-                                    *[class="border-right_mob"] {
-                                        border-right: 1px solid #dddddd;
-                                    }
-                        
-                                    *[class="mob_100"] {
-                                        width: 100% !important;
-                                    }
-                        
-                                    *[class="mob_center"] {
-                                        text-align: center !important;
-                                    }
-                        
-                                    *[class="mob_center_bl"] {
-                                        float: none !important;
-                                        display: block !important;
-                                        margin: 0px auto;
-                                    }
-                        
-                                    .iage_footer a {
-                                        text-decoration: none;
-                                        color: #929ca8;
-                                    }
-                        
-                                    img.mob_display_none {
-                                        width: 0px !important;
-                                        height: 0px !important;
-                                        display: none !important;
-                                    }
-                        
-                                    img.mob_width_50 {
-                                        width: 40% !important;
-                                        height: auto !important;
-                                    }
-                                }
-                        
-                                .table_width_100 {
-                                    width: 680px;
-                                }
-                            </style>
-                        </head>
-                        
-                        <body style="padding: 0px; margin: 0px;">
-                            <div id="mailsub" class="notification" align="center">
-                                <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-                                    <span
-                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #2a2929;">
-                                        You\'ve received an encrypted message from FastTestNow&#174;
-                                    </span>
-                                </font>
-                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="min-width: 320px;">
-                                    <tr>
-                                        <td align="center" bgcolor="#eff3f8">
-                        
-                        
-                                            <!--[if gte mso 10]>
-                                <table width="680" border="0" cellspacing="0" cellpadding="0">
-                                <tr><td>
-                                <![endif]-->
-                        
-                                            <table border="0" cellspacing="0" cellpadding="0" class="table_width_100" width="100%"
-                                                style="max-width: 680px; min-width: 300px;">
-                                                <tr>
-                                                    <td>
-                                                        <!-- padding -->
-                                                        <div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
-                                                    </td>
-                                                </tr>
-                                                <!--header -->
-                                                <tr>
-                                                    <td align="center" bgcolor="#ffffff">
-                                                        <!-- padding -->
-                                                        <div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
-                                                        <table width="90%" border="0" cellspacing="0" cellpadding="0">
-                                                            <tr>
-                                                                <td align="center">
-                                                                    <a href="https://fasttestnow.com/" target="_blank"
-                                                                        style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-                                                                        <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3"
-                                                                            color="#596167">
-                                                                            <img src="https://fasttestnow.health/images/fast.png" width="135"
-                                                                                alt="FastTestNow" border="0" style="display: block;" />
-                                                                        </font>
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                        <!-- padding -->
-                                                        <div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
-                                                    </td>
-                                                </tr>
-                                                <!--header END-->
-                        
-                                                <!--goods -->
-                                                <tr>
-                                                    <td align="center" bgcolor="#ffffff">
-                                                        <table width="90%" border="0" cellspacing="0" cellpadding="0">
-                                                            <tr>
-                                                                <td align="center">
-                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0"
-                                                                        style="line-height: 14px; padding: 0 25px;">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="line-height: 14px; padding: 0 25px;">
-                                                                                    <tbody><tr><td style="width: 14%;">
-                                                                                        <font face="Arial, Helvetica, sans-serif" size="5" color="#57697e" style="font-size: 22px;">
-                                                                                        <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #2a2929; font-weight: bold;">
-                                                                                            Results:
-                                                                                        </span></font>
-                                                                                        <!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
-                                                                                    </td><td>
-                                                                                        <a href="' . $pdf_file_url . '" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold;">
-                                                                                            <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#0074fe">
-                                                                                            Download Submission PDF	</font></a>
-                                                                                        <!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
-                                                                                    </td></tr>			
-                                                                                    </tbody>
-                                                                                </table>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                        
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <!-- padding -->
-                                                                    <div style="height: 10px; line-height: 10px; font-size: 10px;">&nbsp;</div>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                                <!--goods END-->
-                        
-                                                <!--footer -->
-                                                <tr>
-                                                    <td class="iage_footer" align="center" bgcolor="#fcfafb"
-                                                        style="border-top-width: 1px; border-top-style: solid; border-top-color: #ffffff;">
-                                                        <!-- padding -->
-                                                        <div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
-                        
-                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                            <tr>
-                                                                <td align="center">
-                                                                    <font face="Arial, Helvetica, sans-serif" size="3" color="#717171"
-                                                                        style="font-size: 13px;">
-                                                                        <span
-                                                                            style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #717171;">
-                                                                            ' . date('Y') . ' &copy; FastTestNow. ALL Rights Reserved.
-                                                                        </span>
-                                                                    </font>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                        
-                                                        <!-- padding -->
-                                                        <div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
-                                                    </td>
-                                                </tr>
-                                                <!--footer END-->
-                                                <tr>
-                                                    <td>
-                                                        <!-- padding -->
-                                                        <div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                            <!--[if gte mso 10]>
-                                </td></tr>
-                                </table>
-                                <![endif]-->
-                        
-                                        </td>
-                                    </tr>
-                                </table>
-                        
-                            </div>
-                        </body>
-                        
-                        </html>';
+            
+            
+            
+            
         }
     } catch (S3Exception $e) {
         echo ($e->getMessage());
     }
+    
+endforeach;
 
+// Send Uploaded Reports
+
+
+$message = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+            <html>
+            
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                <title>Fast test now</title>
+                <style type="text/css">
+                    html {
+                        -webkit-text-size-adjust: none;
+                        -ms-text-size-adjust: none;
+                    }
+            
+                    @media only screen and (max-device-width: 680px),
+                    only screen and (max-width: 680px) {
+                        *[class="table_width_100"] {
+                            width: 96% !important;
+                        }
+            
+                        *[class="border-right_mob"] {
+                            border-right: 1px solid #dddddd;
+                        }
+            
+                        *[class="mob_100"] {
+                            width: 100% !important;
+                        }
+            
+                        *[class="mob_center"] {
+                            text-align: center !important;
+                        }
+            
+                        *[class="mob_center_bl"] {
+                            float: none !important;
+                            display: block !important;
+                            margin: 0px auto;
+                        }
+            
+                        .iage_footer a {
+                            text-decoration: none;
+                            color: #929ca8;
+                        }
+            
+                        img.mob_display_none {
+                            width: 0px !important;
+                            height: 0px !important;
+                            display: none !important;
+                        }
+            
+                        img.mob_width_50 {
+                            width: 40% !important;
+                            height: auto !important;
+                        }
+                    }
+            
+                    .table_width_100 {
+                        width: 680px;
+                    }
+                </style>
+            </head>
+            
+            <body style="padding: 0px; margin: 0px;">
+                <div id="mailsub" class="notification" align="center">
+                    <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
+                        <span
+                            style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #2a2929;">
+                            You\'ve received an encrypted message from FastTestNow&#174;
+                        </span>
+                    </font>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="min-width: 320px;">
+                        <tr>
+                            <td align="center" bgcolor="#eff3f8">
+            
+            
+                                <!--[if gte mso 10]>
+                    <table width="680" border="0" cellspacing="0" cellpadding="0">
+                    <tr><td>
+                    <![endif]-->
+            
+                                <table border="0" cellspacing="0" cellpadding="0" class="table_width_100" width="100%"
+                                    style="max-width: 680px; min-width: 300px;">
+                                    <tr>
+                                        <td>
+                                            <!-- padding -->
+                                            <div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
+                                        </td>
+                                    </tr>
+                                    <!--header -->
+                                    <tr>
+                                        <td align="center" bgcolor="#ffffff">
+                                            <!-- padding -->
+                                            <div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
+                                            <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td align="center">
+                                                        <a href="https://fasttestnow.com/" target="_blank"
+                                                            style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+                                                            <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3"
+                                                                color="#596167">
+                                                                <img src="https://fasttestnow.health/images/fast.png" width="135"
+                                                                    alt="FastTestNow" border="0" style="display: block;" />
+                                                            </font>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- padding -->
+                                            <div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
+                                        </td>
+                                    </tr>
+                                    <!--header END-->
+            
+                                    <!--goods -->
+                                    <tr>
+                                        <td align="center" bgcolor="#ffffff">
+                                            <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td align="center">
+                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0"
+                                                            style="line-height: 14px; padding: 0 25px;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="line-height: 14px; padding: 0 25px;">
+                                                                        <tbody><tr><td style="width: 14%;">
+                                                                            <font face="Arial, Helvetica, sans-serif" size="5" color="#57697e" style="font-size: 22px;">
+                                                                            <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #2a2929; font-weight: bold;">
+                                                                                Results:
+                                                                            </span></font>
+                                                                            <!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
+                                                                        </td><td>
+                                                                            <a href="#" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold;">
+                                                                                <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#0074fe">
+                                                                               Check your results	</font></a>
+                                                                            <!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
+                                                                        </td></tr>			
+                                                                        </tbody>
+                                                                    </table>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+            
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <!-- padding -->
+                                                        <div style="height: 10px; line-height: 10px; font-size: 10px;">&nbsp;</div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!--goods END-->
+            
+                                    <!--footer -->
+                                    <tr>
+                                        <td class="iage_footer" align="center" bgcolor="#fcfafb"
+                                            style="border-top-width: 1px; border-top-style: solid; border-top-color: #ffffff;">
+                                            <!-- padding -->
+                                            <div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
+            
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td align="center">
+                                                        <font face="Arial, Helvetica, sans-serif" size="3" color="#717171"
+                                                            style="font-size: 13px;">
+                                                            <span
+                                                                style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #717171;">
+                                                                ' . date('Y') . ' &copy; FastTestNow. ALL Rights Reserved.
+                                                            </span>
+                                                        </font>
+                                                    </td>
+                                                </tr>
+                                            </table>
+            
+                                            <!-- padding -->
+                                            <div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
+                                        </td>
+                                    </tr>
+                                    <!--footer END-->
+                                    <tr>
+                                        <td>
+                                            <!-- padding -->
+                                            <div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!--[if gte mso 10]>
+                    </td></tr>
+                    </table>
+                    <![endif]-->
+            
+                            </td>
+                        </tr>
+                    </table>
+            
+                </div>
+            </body>
+            
+            </html>';
+$emailOK = sendEmail($patient_email, $message, $outputs);
+
+function sendEmail($receiver, $message_body, $pdfs) {
     
+    include "postmark.php";
     
-endfor;   
+    $subject = "Fast Test Now Upload Results";
+    // Send an email:
+    $postmark = new Postmark("d1082cae-330f-4dec-a6f7-75c2afb80081", "result@fasttestnow.health");
+    for($i = 0; $i < count($pdfs); $i ++ ) {
+        $postmark
+        ->to($receiver)
+        ->subject($subject)
+        ->plain_message("You've received an encrypted message from FastTestNow&#174;")
+        ->html_message($message_body)
+        ->attachment('result'.($i+1).'.pdf', base64_encode(file_get_contents(__DIR__ . '/' . $pdfs[$i])), 'application/pdf');
+        
+        //    Delete PDF from Server Folder
+        unlink($outputs[$i]);
+    }   
+     
+    $result = $postmark->send();
+     
+    return $result;
+}
+
+
+// var_dump("flag ==". $flag); die;
 
 echo json_encode(array('result'=> $flag));
+
