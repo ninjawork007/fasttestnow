@@ -1,8 +1,8 @@
 <?php
 
-include('../OTP.php');
+require_once('../user_portal/OTP.php');
 session_start();
-require_once('../UserDetailClass.php');
+require_once('../model/customerDetail.php');
 
 if(!empty($_POST["method"])) {
 	switch ($_POST['method']) {
@@ -22,8 +22,8 @@ if(!empty($_POST["method"])) {
 			} else {
 				
 				$users = [];
-				$user = new UserDetail($fName = NULL, $lName = NULL, $_POST["email"]);
-				$users = $user->getUserFromReport();
+				$user = new CustomerDetail($_POST["email"], $id = NULL);
+				$users = $user->getUserTotalInfo();
 				
 				$_SESSION['permission'] = 1;
 				echo json_encode(array(

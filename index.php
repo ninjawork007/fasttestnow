@@ -2,9 +2,10 @@
 <?php
 
 include("config/connection.php");
+include("global/variables.php");
 
 if (isset($_SESSION['admin_name'])) {
-  header("Location:dashboard.php");
+  header("Location: ". _HOST_LINK ."/view/dashboard/index.php");
   exit;
 }
 ?>
@@ -41,7 +42,7 @@ if (isset($_SESSION['admin_name'])) {
                     <a href="/"><img src="images/logo.png" alt=""></a>
                   </div>
                   <h4 class="text-center mb-4 text-white">Sign in your account</h4>
-                  <form id="myform" role="form" action="login.php" method="post">
+                  <form id="myform" role="form" action="view/login/login.php" method="post">
                     <div class="form-group">
                       <label class="mb-1 text-white"><strong>Username</strong></label>
                       <input type="text" name="username" id="username" class="form-control">

@@ -11,7 +11,7 @@ $user_role_row = mysqli_fetch_array($user_role_result);
     Nav header start
 ***********************************-->
 <div class="nav-header">
-    <a href="/dashboard.php" class="brand-logo">
+    <a href="/details.php" class="brand-logo">
         <img class="brand-title" src="./images/logo.png" alt="">
     </a>
 
